@@ -24,7 +24,8 @@ import {
     // starbucks,
     // tesla,
     // shopify,
-    carrent,
+    // carrent,
+    social_media,
     jobit,
     tripguide,
     python,
@@ -191,25 +192,25 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Social Media",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "A mobile platform that allows users to navigate through the system, see, and manage their perfil informaiton, providing a convenient and efficient solution for social media.",
       tags: [
         {
-          name: "react",
+          name: "flutter",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "firebase",
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
+          name: "animation",
           color: "pink-text-gradient",
         },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: social_media,
+      source_code_link: "https://github.com/MatheusDSantossi/flutter-project/tree/flutter_project_mobile_v13/flutter_application_v2",
     },
     {
       name: "Job IT",

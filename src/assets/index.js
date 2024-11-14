@@ -36,7 +36,8 @@ import tambau from "./company/tambau.svg";
 import ceos_solucoes from "./company/ceos_solucoes.avif";
 import supermercado_santos from "./company/supermercado-santos.png";
 
-import carrent from "./carrent.png";
+// import carrent from "./carrent.png";
+import social_media from "./project_1.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
@@ -72,7 +73,8 @@ export {
   // shopify,
   // starbucks,
   // tesla,
-  carrent,
+  // carrent,
+  social_media,
   jobit,
   tripguide,
 };

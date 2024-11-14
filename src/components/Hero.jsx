@@ -18,7 +18,6 @@ const Hero = () => {
             I'm a full-stack developer <br className='sm:block hidden' /> with a passion for creating engaging and intuitive experiences. I specialize in Python, React, and Java.
             <br />
             <br />
-            I'm currently available for freelance work or collaborations. Let's connect!
           </p>
         </div>
       </div>
