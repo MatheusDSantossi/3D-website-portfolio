@@ -3,6 +3,7 @@ import {
     backend,
     frontendDeveloper,
     web,
+
     javascript,
     typescript,
     html,
@@ -15,6 +16,8 @@ import {
     docker,
     java,
     postgresql,
+    python,
+    mysql,
     // mongodb,
     // redux,
     tambau,
@@ -25,10 +28,11 @@ import {
     // tesla,
     // shopify,
     // carrent,
+    // jobit,
+    // tripguide,
     social_media,
-    jobit,
-    tripguide,
-    python,
+    crabby_game,
+    portfolio_website,
     // threejs,
   } from "../assets";
   
@@ -53,7 +57,7 @@ import {
       icon: web,
     },
     {
-      title: "React Native Developer",
+      title: "React Developer",
       icon: mobile,
     },
     {
@@ -119,15 +123,19 @@ import {
       name: "docker",
       icon: docker,
     },
+    {
+      name: "MySQL",
+      icon: mysql,
+    },
   ];
   
   const experiences = [
     {
-      title: "Manager",
+      title: "Multifunctional Team Member",
       company_name: "Santos Supermarket",
       icon: supermercado_santos,
       iconBg: "#383E56",
-      date: "January 2019 - February 2022",
+      date: "Jan 2019 - Feb 2022",
       points: [
         "Managed a range of responsibilities in a family-owned supermarket, including hardware maintenance, troubleshooting, and sales support.",
         "Provided customer service, handling inquiries and assisting with sales, gaining valuable communication skills.",
@@ -213,46 +221,46 @@ import {
       source_code_link: "https://github.com/MatheusDSantossi/flutter-project/tree/flutter_project_mobile_v13/flutter_application_v2",
     },
     {
-      name: "Job IT",
+      name: "Crabby Game",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Crabby Conquest: Mr. Piggy's Adventure is a Java-based block movement game developed as part of a university project for the Man-Machine Interface course. The game introduces players to the concept of block programming by incorporating logical challenges where they manipulate blocks to solve puzzles. Designed as an educational tool, it aims to make programming principles accessible and engaging for beginners while blending creativity and fun into the gameplay.",
       tags: [
         {
-          name: "react",
+          name: "java",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "images edition",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "MMI",
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+      image: crabby_game,
+      source_code_link: "https://github.com/MatheusDSantossi/projeto-IHM/tree/IHM_project_block_game_vFinal/Documents/universidade_stuff/IHM_stuff/IHM-Project/Project_IHM_full_edition_v9",
     },
     {
-      name: "Trip Guide",
+      name: "Portfolio Website",
       description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "A visually stunning and fully responsive portfolio website built using Next.js, Tailwind CSS, and Framer Motion. This project showcases a modern and dynamic design, incorporating smooth animations and an optimized layout to highlight the work and skills of somebody. Developed as one of my first projects using these technologies, it was inspired by a YouTube tutorial and served as a foundational step in mastering advanced web development tools and frameworks.",
       tags: [
         {
           name: "nextjs",
           color: "blue-text-gradient",
         },
         {
-          name: "supabase",
+          name: "tailwindcss",
           color: "green-text-gradient",
         },
         {
-          name: "css",
+          name: "framer-motion",
           color: "pink-text-gradient",
         },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: portfolio_website,
+      source_code_link: "https://github.com/MatheusDSantossi/portfolio-website-p2/tree/web_portfolio_project_2_v1",
     },
   ];
   

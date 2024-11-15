@@ -20,6 +20,7 @@ import reactjs from "./tech/reactjs.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import mysql from "./tech/mysql.svg";
 // import mongodb from "./tech/mongodb.png";
 // import redux from "./tech/redux.png";
 
@@ -37,9 +38,11 @@ import ceos_solucoes from "./company/ceos_solucoes.avif";
 import supermercado_santos from "./company/supermercado-santos.png";
 
 // import carrent from "./carrent.png";
+// import jobit from "./jobit.png";
+// import tripguide from "./tripguide.png";
 import social_media from "./project_1.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import crabby_game from "./project_2.png";
+import portfolio_website from "./project_3.png";
 
 export {
   logo,
@@ -66,6 +69,7 @@ export {
   tailwind,
   typescript,
   threejs,
+  mysql,
   tambau,
   ceos_solucoes,
   supermercado_santos,
@@ -74,7 +78,9 @@ export {
   // starbucks,
   // tesla,
   // carrent,
+  // jobit,
+  // tripguide,
   social_media,
-  jobit,
-  tripguide,
+  crabby_game,
+  portfolio_website,
 };
