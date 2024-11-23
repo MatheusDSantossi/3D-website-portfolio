@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState} from 'react';
+import React, { Suspense, useEffect, useState, memo} from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 
@@ -6,8 +6,17 @@ import CanvasLoader from '../Loader';
 // import { ComputersCanvas } from '.';
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF('./desktop_pc/scene.gltf');
+  // const computer = useGLTF('./desktop_pc/scene.gltf');
+  const { scene } = useGLTF('./desktop_pc/scene.gltf', true, (error) => {
+    console.error('Error loading computer model: ', error);
+  });
   
+  useEffect(() => {
+    return () => {
+      if (scene) scene.dispose(); // Cleanup GLTF model when comonent unmounts
+    }
+  }, [scene])
+
   return (
     <mesh>
       <hemisphereLight intensity={0.99} groundColor='black' />
@@ -21,8 +30,8 @@ const Computers = ({ isMobile }) => {
       />
       <pointLight intensity={1} />
       <primitive 
-      object={computer.scene}
-      scale={isMobile ? 0.7 : 0.75}
+      object={scene}
+      scale={isMobile ? 0.6 : 0.65}
       position={isMobile ? [0, -4, -2.2] : [0, -4.25, -1.5]}
       rotation={[-0.01, -0.2, -0.1]} 
       />
@@ -30,10 +39,12 @@ const Computers = ({ isMobile }) => {
   )
 }
 
-const ComputersCanvas = () => {
+const ComputersCanvas = memo(() => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+
+    // console.log('Canvas mounted');
     // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia('(max-width: 500px)');
 
@@ -47,9 +58,11 @@ const ComputersCanvas = () => {
 
     // Add the callback function as a listener for changes to the media query
     mediaQuery.addEventListener('change', handleMediaQueryChange);
-
+    console.log("Canvas Mounted");
     // Remove the listener when the component unmounts to avoid memory leaks
     return () => {  
+      console.log("Canvas Unmounted");
+      
       mediaQuery.removeEventListener('change', handleMediaQueryChange);
     }
    
@@ -75,6 +88,6 @@ const ComputersCanvas = () => {
       <Preload all />
     </Canvas>
   );
-}
+});
 
 export default ComputersCanvas
