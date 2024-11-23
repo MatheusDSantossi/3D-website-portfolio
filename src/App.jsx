@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
 function App() {
   // const [activeCanvas, setActiveCanvas] = useState('computers');
 
@@ -61,6 +62,7 @@ function App() {
             <StarsCanvas />
           </div>
         </div>
+        <SpeedInsights />
       </BrowserRouter>
     </div>
   );
