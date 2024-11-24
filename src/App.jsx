@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
 
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+
 function App() {
   // const [activeCanvas, setActiveCanvas] = useState('computers');
 
@@ -54,15 +55,16 @@ function App() {
           <Experience />
           <Tech />
           <Works />
+          <SpeedInsights />
           {/* <Feedbacks /> */}
           {/* <div ref={contactSectionRef} className='relative z-0'> */}
           <div className='relative z-0'>
             {/* {activeCanvas === 'earth' && <Contact />} */}
             <Contact />
             <StarsCanvas />
+            
           </div>
         </div>
-        <SpeedInsights />
       </BrowserRouter>
     </div>
   );
