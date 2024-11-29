@@ -5,41 +5,28 @@ import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, Stars
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
-  // const [activeCanvas, setActiveCanvas] = useState('computers');
 
-  // const heroSectionRef = useRef(null);
-  // const contactSectionRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0); // Initial scroll position
+  // 4000
 
-  // const scrollToSection = (section) => {
-  //   if (section === 'hero' && heroSectionRef.current) {
-  //     heroSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-  //     setActiveCanvas('computers');
-  //   } else if (section === 'contact' && contactSectionRef.current) {
-  //     contactSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-  //     setActiveCanvas('earth');
-  //   }
-  // };
+  // Function to handle scroll events
+  const handleScroll = () => {
+    const position = window.scrollY; // Get vertical scroll position
+    setScrollPosition(position); // Update state
+    console.log('Current scroll position:', position); // Log the position
+  };
 
-  // // Detect scroll position and update the active canvas accordingly
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const heroRect = heroSectionRef.current.getBoundingClientRect();
-  //     const contactRect = contactSectionRef.current.getBoundingClientRect();
+  useEffect(() => {
+    if (scrollPosition <= 4000) {
+      // Add scroll event listener
+      window.addEventListener('scroll', handleScroll);
+      // Clean up the event listener on component unmount
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, []); // Run only once when the component mounts
 
-  //     // Determine which section is currently in view
-  //     if (heroRect.top < window.innerHeight && heroRect.bottom > 0) {
-  //       setActiveCanvas('computers');
-  //     } else if (contactRect.top < window.innerHeight && contactRect.bottom > 0) {
-  //       setActiveCanvas('earth');
-  //     }
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
 
   return (
     <div>
@@ -61,8 +48,8 @@ function App() {
           <div className='relative z-0'>
             {/* {activeCanvas === 'earth' && <Contact />} */}
             <Contact />
-            <StarsCanvas />
-            
+            {scrollPosition > 4000 && <StarsCanvas />}
+
           </div>
         </div>
       </BrowserRouter>

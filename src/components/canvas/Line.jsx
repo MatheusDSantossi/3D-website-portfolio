@@ -5,18 +5,37 @@ import { MeshLine, MeshLineGeometry, MeshLineMaterial } from '../MeshLine';
 import { UnrealBloomPass } from 'three/examples/jsm/Addons.js';
 import { EffectComposer } from 'three/examples/jsm/Addons.js';
 import { RenderPass } from 'three/examples/jsm/Addons.js';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
 
 const Line = () => {
+
     const containerRef = useRef(null);
 
+    //TODO: Verify if WebGL is allowed in the user computer
+
     useEffect(() => {
+
         const container = containerRef.current;
+
+        if (!container) return;
+
         // Renderer, Scene, and Camera
         const w = container.offsetWidth;
         const h = container.offsetHeight;
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        const canvas = document.createElement("canvas");
+        container.appendChild(canvas);
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+
+        container.appendChild(renderer.domElement);
         renderer.setSize(w, h);
         container.appendChild(renderer.domElement);
 
@@ -153,7 +172,9 @@ const Line = () => {
             window.removeEventListener('resize', handleWindowResize);
             container.removeChild(renderer.domElement);
             renderer.dispose();
-            // composer.dispose();
+            composer.dispose();
+            // scene.dispose();
+            linesGroup.clear();
         };
     }, []);
 

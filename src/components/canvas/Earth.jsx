@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 
@@ -15,6 +15,7 @@ const Earth = () => {
       rotation-y={0}
     />
   );
+
 };
 
 const EarthCanvas = () => {
@@ -23,7 +24,7 @@ const EarthCanvas = () => {
       shadows
       frameloop='demand'
       gl={{ preserveDrawingBuffer: true }}
-      camera={{ 
+      camera={{
         fov: 45,
         near: 0.1,
         far: 200,
@@ -31,7 +32,7 @@ const EarthCanvas = () => {
       }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls 
+        <OrbitControls
           autoRotate
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
