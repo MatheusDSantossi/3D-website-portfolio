@@ -66,9 +66,14 @@ const Line = () => {
             linesGroup.children.forEach((line) => line.userData.update(t));
         };
 
-        scene.add(linesGroup);
+        const textureLoader = new THREE.TextureLoader();
+        const backgroundTexture = textureLoader.load('/src/assets/herobg.png');
 
         scene.background = new THREE.Color('#050816');
+        // scene.background = backgroundTexture;
+
+        scene.add(linesGroup);
+        
 
         function getMeshLine(index) {
             const points = [];
