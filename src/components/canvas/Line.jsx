@@ -48,6 +48,9 @@ const Line = () => {
         controls.enableDamping = true;
         controls.dampingFactor = 0.03;
 
+        // Disable zoom
+        controls.enableZoom = false;
+
         // Bloom UnrealBloomPass
         const renderScene = new RenderPass(scene, camera);
         const bloomPass = new UnrealBloomPass(new THREE.Vector2(w, h), 1.5, 0.5, 0.15);
