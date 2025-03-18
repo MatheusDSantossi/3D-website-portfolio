@@ -33,6 +33,7 @@ import {
     social_media,
     crabby_game,
     portfolio_website,
+    learning_journey,
     // threejs,
   } from "../assets";
   
@@ -261,6 +262,31 @@ import {
       ],
       image: portfolio_website,
       source_code_link: "https://github.com/MatheusDSantossi/portfolio-website-p2/tree/web_portfolio_project_2_v1",
+    },
+    {
+      name: "Learning Journey",
+      description:
+        "Welcome to my Learning Journey repository! 🚀 This evolving codebase serves as a digital playground where I document my progress in mastering various programming languages, frameworks, and tools. Currently focused on Python-based projects, this repository will expand to include diverse technologies like Next.js, Tailwind CSS, and more as I explore web development, automation, and beyond.",
+      tags: [
+        {
+          name: "python",
+          color: "orange-text-gradient",
+        },
+        {
+          name: "java",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "javascript",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "learning-in-public",
+          color: "green-pink-gradient",
+        },
+      ],
+      image: learning_journey,
+      source_code_link: "https://github.com/MatheusDSantossi/learning-journey/tree/main?tab=readme-ov-file/",
     },
   ];
   

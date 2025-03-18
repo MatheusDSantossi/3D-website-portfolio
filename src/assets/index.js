@@ -43,6 +43,7 @@ import supermercado_santos from "./company/supermercado-santos.png";
 import social_media from "./project_1.png";
 import crabby_game from "./project_2.png";
 import portfolio_website from "./project_3.png";
+import learning_journey from "./project_4.jpg";
 
 export {
   logo,
@@ -83,4 +84,5 @@ export {
   social_media,
   crabby_game,
   portfolio_website,
+  learning_journey,
 };

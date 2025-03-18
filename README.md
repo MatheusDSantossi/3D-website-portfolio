@@ -39,3 +39,7 @@ Alternatively, just open the file directly in your browser.
 Explore the interactive 3D portfolio!
 
 Feel free to explore the code, and let me know if you have any feedback or suggestions!
+
+<!-- links of code used as base -->
+https://github.com/bobbyroe/Animated-Line-Art/blob/main/index.js
+https://github.com/MatheusDSantossi/3D-website-portfolio/blob/project_v1/src/components/canvas/Stars.jsx
