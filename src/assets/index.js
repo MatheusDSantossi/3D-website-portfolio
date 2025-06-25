@@ -44,6 +44,7 @@ import social_media from "./project_1.png";
 import crabby_game from "./project_2.png";
 import portfolio_website from "./project_3.png";
 import learning_journey from "./project_4.jpg";
+import hecate_landing_page from "./project_5.png";
 
 export {
   logo,
@@ -85,4 +86,5 @@ export {
   crabby_game,
   portfolio_website,
   learning_journey,
+  hecate_landing_page,
 };

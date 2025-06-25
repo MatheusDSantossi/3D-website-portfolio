@@ -44,7 +44,7 @@ const About = () => {
       variants={fadeIn("", "", 0.1, 1)}
       className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        I'm a skilled full-stack developer with a lot of projects on GitHub and a really will of learning more. I've been currently studying more about AI. Let's work together in something incredible
+        I’m a versatile software engineer who loves open-source and thrives on continuous learning. From AI experiments to full-stack apps, I turn ideas into working solutions. Currently diving deeper into machine learning and data science
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

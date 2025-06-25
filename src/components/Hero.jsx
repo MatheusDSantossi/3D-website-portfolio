@@ -15,7 +15,7 @@ const Hero = ({ showLine }) => {
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>Hi, I'm <span className="text-[#915eff">Matheus</span></h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I'm a full-stack developer <br className='sm:block hidden' /> with a passion for creating engaging and intuitive experiences. I specialize in Python, React, and Java.
+            I’m a versatile software developer <br className='sm:block hidden' /> crafting everything from AI-powered chatbots to scalable web and cross-platform apps. I thrive on turning data into insights and building intuitive user experiences. My toolbox includes Python, React, Java, and modern data frameworks. Let’s build something amazing together!
             <br />
             <br />
           </p>
