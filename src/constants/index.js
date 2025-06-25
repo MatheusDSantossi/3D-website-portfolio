@@ -34,7 +34,7 @@ import {
     crabby_game,
     portfolio_website,
     learning_journey,
-    // threejs,
+    hecate_landing_page,
   } from "../assets";
   
   export const navLinks = [
@@ -54,19 +54,19 @@ import {
   
   const services = [
     {
-      title: "Web Developer",
+      title: "Full-Stack Engineering",
       icon: web,
     },
     {
-      title: "React Developer",
+      title: "AI & Data Solution",
       icon: mobile,
     },
     {
-      title: "Backend Developer",
+      title: "Backend Architecture",
       icon: backend,
     },
     {
-      title: "Frontend Developer",
+      title: "Cross-Platform Apps",
       icon: frontendDeveloper,
     },
   ];
@@ -158,11 +158,11 @@ import {
       ],
     },
     {
-      title: "IT Intern and Junior Developer",
+      title: "IT Intern progressed to Support Analyst",
       company_name: "Céos Soluções Empresariais",
       icon: ceos_solucoes,
       iconBg: "#383E56",
-      date: "Oct 2023 - Present",
+      date: "Oct 2023 - June 2025",
       points: [
         "Supported users and maintained systems, utilizing tools like Windows Server and TOTVS RM for network management and configuration.",
         "Contributed to a significant project implementing the TOTVS Protheus accounting system, working on areas like finance, purchasing, and inventory management.",
@@ -287,6 +287,31 @@ import {
       ],
       image: learning_journey,
       source_code_link: "https://github.com/MatheusDSantossi/learning-journey/tree/main?tab=readme-ov-file/",
+    },
+    {
+      name: "Chatbot Hecate Landing Page 🚀",
+      description:
+        "A clean, responsive React + Tailwind CSS site showcasing Hecate. Our Python/Django AI chatbot.The landing page have: 1) Hero Section: Overlapping robot and laptop images with a clear “AI-Powered” message. 2) Why Hecate?: Radial-gradient feature highlight with dynamic icons and a giant robot-hand graphic. 3) Modular Components: TypeScript + Tailwind v4 for easy reuse and consistent styling.Dive in to see how we turn Hecate’s intelligent tools into an engaging, production-ready landing page.",
+      tags: [
+        {
+          name: "python",
+          color: "green-text-gradient",
+        },
+        {
+          name: "java",
+          color: "white-text-gradient",
+        },
+        {
+          name: "javascript",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "learning-in-public",
+          color: "orange-text-gradient",
+        },
+      ],
+      image: hecate_landing_page,
+      source_code_link: "https://github.com/MatheusDSantossi/hecate-landing-page.git",
     },
   ];
   
