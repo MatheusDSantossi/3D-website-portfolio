@@ -5,6 +5,8 @@ import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, Stars
 import _ from 'lodash';
 
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { useTheme } from './hoc';
+import ThemeTransition from './components/ThemeTransition';
 
 function App() {
 
@@ -12,6 +14,11 @@ function App() {
   // 4000
   const [showEarth, setShowEarth] = useState(false); // Control whether EarthCanvas is displayed or not
   const [showLine, setShowLine] = useState(true); // Control whether LineCanvas is displayed or not
+
+  const { theme, toggleTheme } = useTheme();
+  const [transkey, setTransKey] = useState(0);
+  const [center, setCenter] = useState({ x: 0, y: 0 })
+  const iconRef = useRef(null);
 
   // Function to handle scroll events
   const handleScroll = useCallback(_.throttle(() => {
@@ -49,7 +56,6 @@ function App() {
 
   }, [handleScroll]); // Run only once when the component mounts
 
-
   return (
     <div>
       <BrowserRouter>
@@ -74,7 +80,15 @@ function App() {
 
           </div>
         </div>
+
+        
       </BrowserRouter>
+        <ThemeTransition 
+          triggerKey={transkey}
+          center={center}
+          oldBg={theme === "dark" ? "#050816" : "#E6E6FA"}
+          onComplete={() => setTransKey(0)}
+        />
     </div>
   );
 }

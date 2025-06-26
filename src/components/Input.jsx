@@ -13,7 +13,7 @@ const Input = ({ label, type, id, name, placeholder }) => {
         <div className="flex flex-col w-full gap-2">
             <div className="flex justify-between">
                 <label htmlFor={id} className="flex flex-col">
-                    <span className="text-primary-light dark:text-white font-medium mb-4">{label}</span>
+                    <span className="text-white font-medium mb-4">{label}</span>
                 </label>
                 <AnimatePresence mode="wait" initial={false}>
                 {error && (
@@ -40,7 +40,7 @@ const Input = ({ label, type, id, name, placeholder }) => {
                         message: `${label} is required*`
                     },
                 })}
-                className={`bg-primary-light dark:bg-tertiary py-4 px-6 placeholder:text-primary/70 dark:placeholder:text-secondary text-primary dark:text-white rounded-lg outline-none border-none font-medium ${error ? "border-red-500" : ""}`}
+                className={`bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium ${error ? "border-red-500" : ""}`}
             />
         </div>
     )

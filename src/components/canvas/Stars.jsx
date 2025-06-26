@@ -1,4 +1,4 @@
-import { useState, useRef, Suspense, memo } from 'react';
+import { useRef, Suspense, memo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, Preload } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
@@ -22,7 +22,7 @@ const Stars = () => {
         >
           <PointMaterial 
             transparent
-            color="#f272c8" 
+            color="#673147" 
             size={0.002} 
             sizeAttenuation={true}
             depthWrite={false}

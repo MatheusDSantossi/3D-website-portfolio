@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
@@ -6,6 +6,7 @@ import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 import { IoIosSunny, IoIosMoon } from "react-icons/io";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "../hoc";
 
 const Navbar = () => {
@@ -39,7 +40,9 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`${
-                active === link.title ? "text-primary dark:text-white" : "text-gray-600 dark:text-secondary"
+                active === link.title
+                  ? "text-primary dark:text-white"
+                  : "text-gray-600 dark:text-secondary"
               }
                   hover:text-tertiary dark:hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
@@ -47,15 +50,35 @@ const Navbar = () => {
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
           ))}
-          {theme == "dark" ? (
-            <button onClick={toggleTheme}>
-              <IoIosSunny className="h-8 w-8 cursor-pointer rounded-full text-yellow-300 hover:text-yellow-400" />
-            </button>
-          ) : (
-            <button onClick={toggleTheme}>
-              <IoIosMoon className="h-8 w-8 cursor-pointer rounded-full text-primary hover:text-red-950" />
-            </button>
-          )}
+          
+          {/* Theme Icons */}
+          <div className="icon-container relative w-8 h-8">
+            <AnimatePresence mode="wait">
+              {theme == "dark" ? (
+                <motion.button 
+                onClick={toggleTheme}
+                initial={{ opacity: 0, rotate: -20 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: 20 }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 flex items-center justify-center"
+                >
+                  <IoIosSunny className="icon fade-in h-8 w-8 cursor-pointer rounded-full text-yellow-300 hover:text-yellow-400" />
+                </motion.button>
+              ) : (
+                <motion.button 
+                onClick={toggleTheme}
+                initial={{ opacity: 0, rotate: 20 }}
+                animate={{ opacity: 1, rotate: -20 }}
+                exit={{ opacity: 0, rotate: -20 }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 flex items-center justify-center"
+                >
+                  <IoIosMoon className="icon fade-in h-8 w-8 cursor-pointer rounded-full text-primary hover:text-red-950" />
+                </motion.button>
+              )}
+            </AnimatePresence>
+          </div>
         </ul>
 
         {/* MOBILE MENU */}
