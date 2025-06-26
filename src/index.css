@@ -126,6 +126,16 @@
   transform: translateZ(0);
 }
 
+/* Icons style and animation */
+.icon {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.icon.fade-in {
+  opacity: 1;
+}
+
 @keyframes mulShdSpin {
   0%,
   100% {
