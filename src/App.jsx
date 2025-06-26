@@ -53,8 +53,8 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div className='relative z-0 bg-primary'>
-          <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+        <div className='relative z-0 bg-primary-light dark:bg-primary'>
+          <div className='bg-primary-light dark:bg-hero-pattern dark:bg-cover dark:bg-no-repeat dark:bg-center'>
             <Navbar />
             <Hero showLine={showLine} />
           </div>

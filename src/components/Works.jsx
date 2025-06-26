@@ -10,6 +10,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../slider-overrides.css"
 
 const ProjectCard = ({
   index,
@@ -30,7 +31,7 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary py-5 rounded-2xl w-full"
+        className="black-gradient dark:bg-tertiary py-5 rounded-2xl w-full"
       >
         <div className="relative w-full h-[230px]">
           <img
@@ -95,7 +96,9 @@ const Works = () => {
       },
     ],
     // Custom arrows
-    nextArrow: <SampleNextArrow />,
+    nextArrow: <SampleNextArrow className="text-black bg-red-50"
+    style={{background: "red"}}
+    />,
     prevArrow: <SamplePrevArrow />,
   };
 
@@ -109,7 +112,7 @@ const Works = () => {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className="mt-3 text-primary dark:text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with

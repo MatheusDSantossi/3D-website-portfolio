@@ -1,3 +1,4 @@
 import SectionWrapper from "./SectionWrapper";
+import useTheme from "./useTheme";
 
-export { SectionWrapper } 
+export { SectionWrapper, useTheme } 

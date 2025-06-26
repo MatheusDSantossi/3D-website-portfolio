@@ -63,7 +63,7 @@ const Form = () => {
                     placeholder="Enter your email"
                 />
                 <label className="flex flex-col">
-                    <span className="text-white font-medium mb-4">Your message</span>
+                    <span className="text-primary-light dark:text-white font-medium mb-4">Your message</span>
                     <textarea
                         rows="7"
                         name="message"
@@ -74,7 +74,7 @@ const Form = () => {
                             },
                         })}
                         placeholder="What do you want to say?"
-                        className={`bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium ${methods.formState.errors.message} ? "border-red-500": ""}`}
+                        className={`bg-primary-light dark:bg-tertiary py-4 px-6 placeholder:text-primary/70 dark:placeholder:text-secondary text-primary dark:text-white rounded-lg outline-none border-none font-medium ${methods.formState.errors.message} ? "border-red-500": ""}`}
                     />
                     {methods.formState.errors.message && (
                         <motion.p
@@ -90,7 +90,7 @@ const Form = () => {
                 </label>
                 <button
                     type='submit'
-                    className='bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl hover:bg-primary'
+                    className='violet-gradient dark:bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl hover:bg-primary'
                 >
                     {loading ? 'Sending...' : 'Send'}
                 </button>
