@@ -1,0 +1,11 @@
+.slick-next:before,
+.slick-prev:before {
+    background-color: #050816;
+    border-radius: 100%;
+}
+
+.slick-next,
+.slick-prev {
+  background-color: #050816;
+  border-radius: 100%;
+}
