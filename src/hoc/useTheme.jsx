@@ -11,7 +11,7 @@ function useTheme() {
 
   // Watch for OS preferences changes (e.g user flips system toggle)
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark");
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = (e) => {
       // Only update if user hasn't explicity chosen yet
       if (!localStorage.getItem("theme")) {
