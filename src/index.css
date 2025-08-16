@@ -11,6 +11,7 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
+  transition: all 0.3s ease-in-out;
 }
 
 .hash-span {
@@ -135,6 +136,58 @@
 .icon.fade-in {
   opacity: 1;
 }
+
+/* Navbar CSS styles */
+
+.toggle {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.toggle span {
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.toggle span:nth-child(1) {
+  transform: translateY(-15px);
+  width: 25px;
+  left: 15px;
+}
+
+.toggle.menu span:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+  width: 40px;
+  transition-delay: 0.125s;
+}
+
+.toggle span:nth-child(2) {
+  transform: translateY(15px);
+  width: 15px;
+  left: 15px;
+}
+
+.toggle.menu span:nth-child(2) {
+  transform: translateY(0) rotate(315deg);
+  width: 40px;
+  transition-delay: 0.125s;
+}
+
+.toggle.menu span:nth-child(3) {
+  transform: translateX(60px);
+}
+
+/* End Navbar CSS styles */
 
 @keyframes mulShdSpin {
   0%,

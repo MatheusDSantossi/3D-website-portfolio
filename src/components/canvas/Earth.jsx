@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { memo, Suspense, useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 
@@ -46,4 +46,4 @@ const EarthCanvas = () => {
   );
 };
 
-export default EarthCanvas
+export default memo(EarthCanvas)

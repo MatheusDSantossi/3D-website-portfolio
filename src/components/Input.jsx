@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { memo } from "react";
 import { useFormContext } from "react-hook-form";
 
 const Input = ({ label, type, id, name, placeholder }) => {
@@ -61,4 +62,4 @@ const framer_error = {
     exit: { opacity: 0, y: 10},
 }
 
-export default Input;
+export default memo(Input);

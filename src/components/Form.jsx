@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import { FormProvider, useForm } from "react-hook-form";
 import { motion } from "framer-motion";
@@ -74,7 +74,7 @@ const Form = () => {
                             },
                         })}
                         placeholder="What do you want to say?"
-                        className={`bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium ${methods.formState.errors.message} ? "border-red-500": ""}`}
+                        className={`bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium transition-none ${methods.formState.errors.message} ? "border-red-500": ""}`}
                     />
                     {methods.formState.errors.message && (
                         <motion.p
@@ -99,4 +99,4 @@ const Form = () => {
     )
 }
 
-export default Form;
+export default memo(Form);

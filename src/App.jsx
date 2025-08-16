@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
 
@@ -33,8 +33,6 @@ function App() {
     } else if (position <= 4000 && showEarth) {
       setShowEarth(false);
     }
-
-    console.log("AFTER: ", showEarth)
 
     // hide LineCanvas when user scrolls beyond a certain distance
     if (position > 3500) {
@@ -83,14 +81,14 @@ function App() {
 
         
       </BrowserRouter>
-        <ThemeTransition 
+        {/* <ThemeTransition 
           triggerKey={transkey}
           center={center}
           oldBg={theme === "dark" ? "#050816" : "#E6E6FA"}
           onComplete={() => setTransKey(0)}
-        />
+        /> */}
     </div>
   );
 }
 
-export default App
+export default memo(App)
