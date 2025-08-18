@@ -274,4 +274,3 @@ function setXYZW(array, location, x, y, z, w) {
     array[location + 2] = z;
     array[location + 3] = w;
 }
-//# sourceMappingURL=MeshLineGeometry.js.map
