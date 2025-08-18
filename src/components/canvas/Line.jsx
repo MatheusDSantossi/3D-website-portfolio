@@ -56,6 +56,9 @@ const Line = ({ background }) => {
 
     // Disable zoom
     controls.enableZoom = false;
+    
+    // Disable rotate
+    controls.enableRotate = false;
 
     // Bloom UnrealBloomPass
     const renderScene = new RenderPass(scene, camera);
@@ -82,6 +85,9 @@ const Line = ({ background }) => {
 
     const textureLoader = new THREE.TextureLoader();
     const backgroundTexture = textureLoader.load("/src/assets/herobg.png");
+    const color = new THREE.Color(background);
+    
+    scene.background = color;
 
     scene.add(linesGroup);
 
@@ -224,31 +230,37 @@ const Line = ({ background }) => {
   }, []);
 
   // --- Update background when prop changes ---
-  useEffect(() => {
-    const scene = sceneRef.current;
-    const renderer = rendererRef.current;
-    const composer = composerRef.current;
-    const camera = cameraRef.current;
+  // useEffect(() => {
+  //   const scene = sceneRef.current;
+  //   const renderer = rendererRef.current;
+  //   const composer = composerRef.current;
+  //   const camera = cameraRef.current;
+  //   const linesGroup = linesGroupRef.current;
+  //   if (!scene || !renderer) return;
 
-    if (!scene || !renderer) return;
+  //   linesGroup.userData.update = function (t) {
+  //     linesGroup.children.forEach((line) => line.userData.update(t));
+  //   };
 
-    // set both scene background and renderer clear color
-    try {
-      const color = new THREE.Color(background);
-      scene.background = color;
-      renderer.setClearColor(color);
-    } catch (e) {
-      console.warn("Invalid background color:", background, e);
-    }
+  //   scene.add(linesGroup)
 
-    // force one immediate frame so the change is visible without needing scroll/repaint
-    // prefer composer.render() if composer exists, otherwise renderer.render
-    if (composer && camera) {
-      composer.render();
-    } else if (renderer && scene && camera) {
-      renderer.render(scene, camera);
-    }
-  }, [background]);
+  //   // set both scene background and renderer clear color
+  //   try {
+  //     const color = new THREE.Color(background);
+  //     scene.background = color;
+  //     renderer.setClearColor(color);
+  //   } catch (e) {
+  //     console.warn("Invalid background color:", background, e);
+  //   }
+
+  //   // force one immediate frame so the change is visible without needing scroll/repaint
+  //   // prefer composer.render() if composer exists, otherwise renderer.render
+  //   if (composer && camera) {
+  //     composer.render();
+  //   } else if (renderer && scene && camera) {
+  //     renderer.render(scene, camera);
+  //   }
+  // }, [background]);
 
   return <div ref={containerRef} style={{ width: "100%", height: "100%" }} />;
 };
