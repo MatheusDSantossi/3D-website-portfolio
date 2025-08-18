@@ -26,4 +26,4 @@ function SectionWrapper(Component, idName) {
   
 }
 
-export default memo(SectionWrapper)
+export default SectionWrapper

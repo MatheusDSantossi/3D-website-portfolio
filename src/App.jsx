@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
 
@@ -15,10 +15,10 @@ function App() {
   const [showEarth, setShowEarth] = useState(false); // Control whether EarthCanvas is displayed or not
   const [showLine, setShowLine] = useState(true); // Control whether LineCanvas is displayed or not
 
-  const { theme, toggleTheme } = useTheme();
-  const [transkey, setTransKey] = useState(0);
-  const [center, setCenter] = useState({ x: 0, y: 0 })
-  const iconRef = useRef(null);
+  // const { theme, toggleTheme } = useTheme();
+  // const [transkey, setTransKey] = useState(0);
+  // const [center, setCenter] = useState({ x: 0, y: 0 })
+  // const iconRef = useRef(null);
 
   // Function to handle scroll events
   const handleScroll = useCallback(_.throttle(() => {

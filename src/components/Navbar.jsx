@@ -44,7 +44,7 @@ const Navbar = () => {
                   ? "text-primary dark:text-white"
                   : "text-gray-600 dark:text-secondary"
               }
-                  hover:text-tertiary dark:hover:text-gray-300 text-[18px] font-medium cursor-pointer`}
+                  hover:text-tertiary dark:hover:text-gray-300 text-[18px] font-medium cursor-pointer transition-none`}
               onClick={() => setActive(link.title)}
             >
               <a href={`#${link.id}`}>{link.title}</a>
@@ -63,7 +63,7 @@ const Navbar = () => {
                   transition={{ duration: 0.4 }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  <IoIosSunny className="icon fade-in h-8 w-8 cursor-pointer rounded-full text-yellow-300 hover:text-yellow-400" />
+                  <IoIosSunny className="icon fade-in h-8 w-8 cursor-pointer rounded-full text-yellow-300 hover:text-[#FFFF00]" />
                 </motion.button>
               ) : (
                 <motion.button
@@ -74,7 +74,7 @@ const Navbar = () => {
                   transition={{ duration: 0.4 }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  <IoIosMoon className="icon fade-in h-8 w-8 cursor-pointer rounded-full text-primary hover:text-red-950" />
+                  <IoIosMoon className="icon fade-in h-8 w-8 cursor-pointer rounded-full text-primary hover:text-[#263238]" />
                 </motion.button>
               )}
             </AnimatePresence>
@@ -121,11 +121,11 @@ const Navbar = () => {
               ))}
               {theme == "dark" ? (
                 <button onClick={toggleTheme}>
-                  <IoIosSunny className="h-8 w-8 cursor-pointer rounded-full text-yellow-300 hover:text-yellow-400" />
+                  <IoIosSunny className="h-8 w-8 cursor-pointer rounded-full text-yellow-300 hover:text-[#FFFF00]" />
                 </button>
               ) : (
                 <button onClick={toggleTheme}>
-                  <IoIosMoon className="h-8 w-8 cursor-pointer rounded-full text-yellow-300 hover:text-yellow-400" />
+                  <IoIosMoon className="h-8 w-8 cursor-pointer rounded-full text-yellow-300 hover:text-[#263238]" />
                 </button>
               )}
             </ul>
