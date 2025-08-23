@@ -1,9 +1,9 @@
-import { forwardRef, memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { logo } from "../assets";
 import { IoIosSunny, IoIosMoon } from "react-icons/io";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,10 +14,18 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
+  const windowScrollY = window.scrollY;
+
+  useEffect(() => {
+    console.log("windowScrollY navbar: ", windowScrollY)
+  }, [windowScrollY])
+
+  // PROBLEM? It only draws my app once, so it doesn't update when I need to.
+
   return (
     <nav
       className={`${styles.paddingX}
-    ${theme} w-full flex items-center py-5 fixed top-0 z-20 bg-primary-light dark:bg-primary
+    ${theme} ${windowScrollY > 1 ? "!bg-opacity-30": ""} w-full flex items-center py-5 fixed top-0 z-20 bg-primary-light dark:bg-primary
     `}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -39,7 +47,9 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <li
               key={link.id}
-              className={`${
+              className={`
+                ${windowScrollY > 1 ? "!bg-primary rounded p-2": ""}
+                ${
                 active === link.title
                   ? "text-primary dark:text-white"
                   : "text-gray-600 dark:text-secondary"

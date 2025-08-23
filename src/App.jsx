@@ -24,8 +24,8 @@ function App() {
   const handleScroll = useCallback(_.throttle(() => {
     const position = window.scrollY; // Get vertical scroll position
     setScrollPosition(position); // Update state
-    console.log('Current scroll position:', position); // Log the position
-    console.log("BEFORE: ", showEarth)
+    // console.log('Current scroll position:', position); // Log the position
+    // console.log("BEFORE: ", showEarth)
 
     // Show Earth when user scrolls beyond 4000px (only once)
     if (position > 4000 && !showEarth) {
