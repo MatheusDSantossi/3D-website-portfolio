@@ -35,6 +35,7 @@ import python from './tech/python.svg';
 
 import tambau from "./company/tambau.svg";
 import ceos_solucoes from "./company/ceos_solucoes.avif";
+import grupo_atan from "./company/grupo_atan.png";
 import supermercado_santos from "./company/supermercado-santos.png";
 
 // import carrent from "./carrent.png";
@@ -74,6 +75,7 @@ export {
   mysql,
   tambau,
   ceos_solucoes,
+  grupo_atan,
   supermercado_santos,
   // meta,
   // shopify,

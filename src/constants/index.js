@@ -22,6 +22,7 @@ import {
     // redux,
     tambau,
     ceos_solucoes,
+    grupo_atan,
     supermercado_santos,
     // meta,
     // starbucks,
@@ -168,6 +169,19 @@ import {
         "Contributed to a significant project implementing the TOTVS Protheus accounting system, working on areas like finance, purchasing, and inventory management.",
         "Provided technical support and ensured system functionality through daily checklists.",
         "Developed a website on Hostinger, focusing on usability and advanced features that improved user experience, furthering my full-stack development skills.",
+      ],
+    },
+    {
+      title: "Fullstack Developer",
+      company_name: "Grupo Atan",
+      icon: grupo_atan,
+      iconBg: "#000000FF",
+      date: "July 2025 - Now",
+      points: [
+        "Collaborate on ongoing React projects, implemeting new features, fixing bugs, and ensuring code quality.",
+        "Developing projects in Python to automate processes and turning complex tasks easy using AI.",
+        "Learning more than programming, but also how a company works and how technology can help it grow faster.",
+        "Rapidly learning the codebase and delivering incremental improvements.",
       ],
     },
   ];
