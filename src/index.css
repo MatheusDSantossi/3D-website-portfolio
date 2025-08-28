@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --default-transition: background-color 0.3s ease-in-out,
+                        color 0.3s ease-in-out,
+                        border-color 0.3s ease-in-out;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +17,7 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
-  transition: all 0.3s ease-in-out;
+  transition: var(--default-transition);
 }
 
 .hash-span {
