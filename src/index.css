@@ -6,8 +6,9 @@
 
 :root {
   --default-transition: background-color 0.3s ease-in-out,
-                        color 0.3s ease-in-out,
-                        border-color 0.3s ease-in-out;
+    color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+  --vertical-timeline-element-color: #ffffff;
 }
 
 * {
@@ -194,6 +195,21 @@
 }
 
 /* End Navbar CSS styles */
+
+/* Vertical timeline CSS styles */
+
+@media (prefers-color-scheme: light) {
+  .vertical-timeline-element-content .vertical-timeline-element-date {
+    color: var(--vertical-timeline-element-color) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .vertical-timeline-element-content .vertical-timeline-element-date {
+    color: red !important;
+  }
+}
+/* END Vertical timeline CSS styles */
 
 @keyframes mulShdSpin {
   0%,
