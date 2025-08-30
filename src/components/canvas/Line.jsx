@@ -7,8 +7,7 @@ import { EffectComposer } from "three/examples/jsm/Addons.js";
 import { RenderPass } from "three/examples/jsm/Addons.js";
 import { memo, useEffect, useRef } from "react";
 
-const Line = ({ background }) => {
-  console.log("background: ", background);
+const Line = () => {
 
   // REF
   const containerRef = useRef(null);
@@ -85,9 +84,9 @@ const Line = ({ background }) => {
 
     const textureLoader = new THREE.TextureLoader();
     const backgroundTexture = textureLoader.load("/src/assets/herobg.png");
-    const color = new THREE.Color(background);
+    // const color = new THREE.Color(background);
     
-    scene.background = color;
+    scene.background = new THREE.Color('#050816');
 
     scene.add(linesGroup);
 

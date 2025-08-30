@@ -31,7 +31,7 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary py-5 rounded-2xl w-full transition-none"
+        className="bg-tertiary py-5 rounded-2xl w-full transition-transform duration-100"
       >
         <div className="relative w-full h-[230px]">
           <img
@@ -48,7 +48,7 @@ const ProjectCard = ({
               <img
                 src={github}
                 alt="source code"
-                className="w-1/2 h-1/2 object-contain hover:scale-125"
+                className="w-1/2 h-1/2 object-contain transition-transform duration-300 scale-100 hover:scale-125"
               />
             </div>
           </div>

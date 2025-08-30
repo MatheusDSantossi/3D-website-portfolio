@@ -39,9 +39,9 @@ const Hero = ({ showLine }) => {
           </p>
         </div>
       </div>
-      {/* new THREE.Color("#050816") */}
       {showLine && (
         <Line background={`${currentTheme === "dark" ? "#050816" : "#E6E6FA"}`} />
+        // <Line background={`${currentTheme === "dark" ? "#050816" : "#E6E6FA"}`} />
       )}
       {/* <Line /> */}
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
