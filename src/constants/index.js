@@ -76,58 +76,72 @@ import {
     {
       name: "HTML 5",
       icon: html,
+      experience: "95%"
     },
     {
-      name: "CSS 3",
+      name: "CSS",
       icon: css,
+      experience: "95%"
     },
     {
       name: "JavaScript",
       icon: javascript,
+      experience: "95%"
     },
     {
       name: "TypeScript",
       icon: typescript,
+      experience: "95%"
     },
     {
-      name: "React JS",
+      name: "React",
       icon: reactjs,
+      experience: "95%"
     },
     {
       name: "Java",
       icon: java,
+      experience: "90%"
     },
     {
       name: "Tailwind CSS",
       icon: tailwind,
+      experience: "95%"
     },
     {
       name: "Node JS",
       icon: nodejs,
+      experience: "85%"
     },
     {
       name: "PostgreSQL",
       icon: postgresql,
+      experience: "85%"
     },
     {
       name: "Python",
       icon: python,
+      experience: "95%"
     },
     {
       name: "git",
       icon: git,
+      experience: "85%"
     },
     {
       name: "figma",
       icon: figma,
+      experience: "90%"
     },
     {
       name: "docker",
       icon: docker,
+      experience: "75%"
     },
     {
       name: "MySQL",
       icon: mysql,
+      experience: "85%"
     },
   ];
   
