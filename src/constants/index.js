@@ -141,7 +141,7 @@ import {
     {
       name: "MySQL",
       icon: mysql,
-      experience: "85%"
+      experience: "15%"
     },
   ];
   
