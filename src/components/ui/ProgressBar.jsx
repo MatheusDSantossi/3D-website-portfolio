@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import computerDev from "../../assets/icons/computer-dev.svg";
 import { useMemo, useState } from "react";
+import Tooltip from "./Tooltip";
 
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
@@ -22,7 +23,6 @@ const ProgressBar = ({ value }) => {
     []
   );
 
-  const [showTooltip, setShowTooltip] = useState(false);
   return (
     <div
       className={`w-full h-4 rounded-full overflow-hidde bg-tertiary`}
@@ -44,51 +44,30 @@ const ProgressBar = ({ value }) => {
           willChange: "width",
         }}
       />
-
-      {/* Icon positioned above the fill edge (centered at the fill's rightmost point) */}
-      {/* the icon is placed in the outer container (not inside the fill) so it visually floats above */}
-      {/* <div
-        className="absolute top-0"
-        style={{
-          left: iconLeft,
-          top: "-2px", // move the icon above the bar; tweak as needed
-          transform: "translateX(-50%)",
-          zIndex: 20,
-          pointerEvents: "auto",
-        }}
-      > */}
-      <div
-        className="relative flex items-center justify-center"
-      >
-
-        {/* Tooltip above icon */}
-        {showTooltip && (
-          <div
-            className="absolute bottom-full mb-6 whitespace-nowrap text-xs px-2 py-1 rounded transition-all ease-in-out duration-300"
+      <div className=" -top-5">
+        <Tooltip 
+        position={"top"} 
+        tooltipsText={width}
+        childrenMargin={width}
+        >
+          <img
+            src={computerDev}
+            alt="icon"
+            className="test w-6 h-6 select-none"
             style={{
-              background: "rgba(0,0,0,0.75)",
-              color: "#fff",
-              transform: "translateX(-50%)",
+              position: "absolute",
               left: iconLeft,
-              zIndex: 30,
+              transform: "translateX(-50%)",
+              top: "-21px",
+              zIndex: 40,
             }}
-          >
-            {width}
-          </div>
-        )}
-
-        <img
-          src={computerDev}
-          alt="icon"
-          className="test w-6 h-6 select-none"
-          style={{ position: "absolute", left: iconLeft, transform: "translateX(-50%)", top: "-21px", zIndex: 40 }}
-          draggable={false}
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
-        />
+            draggable={false}
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+          />
+        </Tooltip>
       </div>
     </div>
-    // </div>
   );
 };
 export default ProgressBar;
