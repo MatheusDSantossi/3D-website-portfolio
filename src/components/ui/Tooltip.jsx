@@ -8,23 +8,23 @@ const Tooltip = ({ children, tooltipsText, position, childrenMargin }) => {
 
   const toolTipClass =
     position === "right"
-      ? `absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 whitespace-nowrap rounded bg-primary-light px-4 py-[6px] text-sm font-semibold text-white opacity-0 group-hover:opacity-100`
+      ? `absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 whitespace-nowrap rounded bg-primary dark:bg-primary-light px-4 py-[6px] text-sm font-semibold text-white opacity-0 group-hover:opacity-100`
       : position === "left"
-      ? `absolute right-full top-1/2 z-20 mr-3 -translate-y-1/2 whitespace-nowrap rounded bg-primary-light px-4 py-[6px] text-sm font-semibold text-white opacity-0 group-hover:opacity-100`
+      ? `absolute right-full top-1/2 z-20 mr-3 -translate-y-1/2 whitespace-nowrap rounded bg-primary dark:bg-primary-light px-4 py-[6px] text-sm font-semibold text-white opacity-0 group-hover:opacity-100`
       : position === "bottom"
-      ? `absolute left-1/2 top-full z-20 mt-3 -translate-x-1/2 whitespace-nowrap rounded bg-primary-light px-4 py-[6px] text-sm font-semibold text-white opacity-0 group-hover:opacity-100`
+      ? `absolute left-1/2 top-full z-20 mt-3 -translate-x-1/2 whitespace-nowrap rounded bg-primary dark:bg-primary-light px-4 py-[6px] text-sm font-semibold text-white opacity-0 group-hover:opacity-100`
       : // Top position is default
-        `absolute bottom-full z-20 mb-8 -translate-x-1/4 whitespace-nowrap rounded bg-primary-light px-4 py-[6px] text-sm font-semibold text-primary opacity-0 group-hover:opacity-100`;
+        `absolute bottom-full z-20 mb-8 -translate-x-1/4 whitespace-nowrap rounded bg-primary dark:bg-primary-light px-4 py-[6px] text-sm font-semibold text-white dark:text-primary opacity-0 group-hover:opacity-100`;
 
   const arrowClass =
     position === "right"
-      ? `absolute left-[-3px] top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-sm bg-primary-light`
+      ? `absolute left-[-3px] top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-sm bg-primary dark:bg-primary-light`
       : position === "left"
-      ? `absolute right-[-3px] top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-sm bg-primary-light`
+      ? `absolute right-[-3px] top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-sm bg-primary dark:bg-primary-light`
       : position === "bottom"
-      ? `absolute left-1/2 top-[-3px] -z-10 h-2 w-2 -translate-x-1/2 rotate-45 rounded-sm bg-primary-light`
+      ? `absolute left-1/2 top-[-3px] -z-10 h-2 w-2 -translate-x-1/2 rotate-45 rounded-sm bg-primary dark:bg-primary-light`
       : // Top position is default
-        `absolute bottom-[-3px] left-1/2 -z-10 h-2 w-2 -translate-x-1/2 rotate-45 rounded-sm bg-primary-light`;
+        `absolute bottom-[-3px] left-1/2 -z-10 h-2 w-2 -translate-x-1/2 rotate-45 rounded-sm bg-primary dark:bg-primary-light`;
 
   return (
     <div className="inline-block">
