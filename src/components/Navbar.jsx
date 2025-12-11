@@ -17,15 +17,15 @@ const Navbar = () => {
   const windowScrollY = window.scrollY;
 
   useEffect(() => {
-    console.log("windowScrollY navbar: ", windowScrollY)
-  }, [windowScrollY])
+    console.log("windowScrollY navbar: ", windowScrollY);
+  }, [windowScrollY]);
 
   // PROBLEM? It only draws my app once, so it doesn't update when I need to.
 
   return (
     <nav
       className={`${styles.paddingX}
-    ${theme} ${windowScrollY > 1 ? "!bg-opacity-30": ""} w-full flex items-center py-5 fixed top-0 z-20 bg-primary-light dark:bg-primary
+    ${theme} w-full flex items-center py-5 fixed top-0 z-20 bg-primary-light dark:bg-primary
     `}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -48,12 +48,11 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`
-                ${windowScrollY > 1 ? "!bg-primary rounded p-2": ""}
                 ${
-                active === link.title
-                  ? "text-primary dark:text-white"
-                  : "text-gray-600 dark:text-secondary"
-              }
+                  active === link.title
+                    ? "text-primary dark:text-white"
+                    : "text-gray-600 dark:text-secondary"
+                }
                   hover:text-tertiary dark:hover:text-gray-300 text-[18px] font-medium cursor-pointer transition-none`}
               onClick={() => setActive(link.title)}
             >
@@ -124,7 +123,10 @@ const Navbar = () => {
                     setActive(link.title);
                   }}
                 >
-                  <a className="transition-all hover:text-gray-300 dark:hover:text-tertiary" href={`#${link.id}`}>
+                  <a
+                    className="transition-all hover:text-gray-300 dark:hover:text-tertiary"
+                    href={`#${link.id}`}
+                  >
                     {link.title}
                   </a>
                 </li>
