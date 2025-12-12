@@ -126,7 +126,7 @@ import {
     {
       name: "git",
       icon: git,
-      experience: "85%"
+      experience: "90%"
     },
     {
       name: "figma",
@@ -141,7 +141,7 @@ import {
     {
       name: "MySQL",
       icon: mysql,
-      experience: "15%"
+      experience: "75%"
     },
   ];
   

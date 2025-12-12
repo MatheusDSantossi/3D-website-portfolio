@@ -1,12 +1,13 @@
-import { motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useMemo, useRef, useState } from "react";
 import Tooltip from "./Tooltip";
 
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
-
 const ProgressBar = ({ value }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   // Accept number or percent string
   const numeric = typeof value === "number" ? value : parseFloat(value);
@@ -22,14 +23,15 @@ const ProgressBar = ({ value }) => {
   // linear-gradient(to right, #005aa7, #fffde4);
 
   const gradient = useMemo(
-    () => "linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
+    () => "linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%)",
     // () => "linear-gradient(90deg, #005aa7 0%, #326FA4FF 60%, #fffde4 100%)",
     []
   );
 
   return (
     <div
-      className={`w-full h-5 rounded-full bg-gray-300 dark:bg-gray-700 relative overflow-hidden shadow-inner`}
+      ref={ref}
+      className={`w-full h-5 rounded-full bg-gray-300 dark:bg-gray-700 relative shadow-inner`}
       role="progressbar"
       aria-valuenow={pct}
       aria-valuemin={0}
@@ -43,7 +45,7 @@ const ProgressBar = ({ value }) => {
       <motion.div
         className="h-full rounded-full relative overflow-hidden"
         initial={{ width: 0, opacity: 0 }}
-        animate={{ width, opacity: 1 }}
+        animate={{ width: isInView ? width : 0, opacity: isInView ? 1 : 0 }}
         transition={{
           width: { duration: 1.2, ease: [0.4, 0, 0.2, 1] },
           opacity: { duration: 0.3 },
@@ -60,7 +62,7 @@ const ProgressBar = ({ value }) => {
         <motion.div
           className="absolute inset-0"
           initial={{ x: "-100%" }}
-          animate={{ x: "200%" }}
+          animate={{ x: isInView ? "200%" : "-100%" }}
           transition={{
             duration: 2,
             repeat: Infinity,
@@ -74,83 +76,94 @@ const ProgressBar = ({ value }) => {
           }}
         />
       </motion.div>
+
       {/* Icon with bounce animation */}
-      <motion.div
-        initial={{ scale: 0, y: -30, opacity: 0 }}
-        animate={{
-          scale: 1,
-          y: 0,
-          opacity: 1,
-        }}
-        transition={{
-          delay: 0.8,
-          type: "spring",
-          stiffness: 300,
-          damping: 15,
-        }}
+      <div
         style={{
           position: "absolute",
           left: iconLeft,
           transform: "translateX(-50%)",
-          top: "-24px",
+          top: "-1px",
+          width: "24px",
           zIndex: 400,
         }}
       >
-        <Tooltip position={"top"} tooltipsText={width} childrenMargin="0">
+        <Tooltip position={"top"} tooltipsText={width} childrenMargin={width}>
           <motion.div
-            animate={
-              isHovered
-                ? {
-                    y: [0, -5, 0],
-                    rotate: [0, 5, -5, 0],
-                  }
-                : {}
-            }
+            initial={{ scale: 0, y: -30, opacity: 0 }}
+            animate={{
+              scale: isInView ? 1 : 0,
+              y: isInView ? 0 : -30,
+              opacity: isInView ? 1 : 0,
+            }}
             transition={{
-              duration: 0.6,
-              repeat: isHovered ? Infinity : 0,
-              repeatDelay: 0.2,
+              delay: 0.8,
+              type: "spring",
+              stiffness: 300,
+              damping: 15,
             }}
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))",
+            <motion.div
+              animate={
+                isHovered
+                  ? {
+                      y: [0, -5, 0],
+                      rotate: [0, 5, -5, 0],
+                    }
+                  : {}
+              }
+              transition={{
+                duration: 0.6,
+                repeat: isHovered ? Infinity : 0,
+                repeatDelay: 0.2,
               }}
             >
-              <motion.circle
-                cx="12"
-                cy="12"
-                r="11"
-                fill="url(#iconGradient)"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 1, type: "spring", stiffness: 200 }}
-              />
-              <motion.path
-                d="M8 12l3 3 5-6"
-                stroke="white"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ delay: 1.2, duration: 0.5, ease: "easeOut" }}
-              />
-              <defs>
-                <linearGradient id="iconGradient" x1="0" y1="0" x2="24" y2="24">
-                  <stop offset="0%" stopColor="#667eea" />
-                  <stop offset="100%" stopColor="#764ba2" />
-                </linearGradient>
-              </defs>
-            </svg>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))",
+                }}
+              >
+                <motion.circle
+                  cx="12"
+                  cy="12"
+                  r="11"
+                  fill="url(#iconGradient)"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 1, type: "spring", stiffness: 200 }}
+                />
+                <motion.path
+                  d="M8 12l3 3 5-6"
+                  stroke="white"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 1.2, duration: 0.5, ease: "easeOut" }}
+                />
+                <defs>
+                  <linearGradient
+                    id="iconGradient"
+                    x1="0"
+                    y1="0"
+                    x2="24"
+                    y2="24"
+                  >
+                    <stop offset="0%" stopColor="#667eea" />
+                    <stop offset="100%" stopColor="#764ba2" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </motion.div>
           </motion.div>
         </Tooltip>
-      </motion.div>
+      </div>
 
       {/* Pulse effect at the end of progress */}
       {pct > 0 && (
