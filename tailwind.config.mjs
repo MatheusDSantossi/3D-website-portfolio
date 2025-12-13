@@ -5,11 +5,14 @@ module.exports = {
     "./public/index.html",
   ],
   mode: "jit",
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
+        "primary-light": "#E6E6FA",
         primary: "#050816",
         secondary: "#aaa6c3",
+        "secondary-light": "#702963",
         tertiary: "#151030",
         "black-100": "#100d25",
         "black-200": "#090325",

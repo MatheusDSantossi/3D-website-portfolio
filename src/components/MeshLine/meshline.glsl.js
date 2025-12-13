@@ -114,4 +114,3 @@ ShaderChunk['meshline_frag'] = `
         ${ShaderChunk.fog_fragment}
 	}
 `;
-//# sourceMappingURL=meshline.glsl.js.map

@@ -10,6 +10,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../slider-overrides.css"
 
 const ProjectCard = ({
   index,
@@ -22,7 +23,7 @@ const ProjectCard = ({
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-      className="w-full"
+      className="w-full pt-4"
     >
       <Tilt
         options={{
@@ -30,7 +31,7 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary py-5 rounded-2xl w-full"
+        className="bg-tertiary py-5 rounded-2xl w-full transition-transform duration-100"
       >
         <div className="relative w-full h-[230px]">
           <img
@@ -42,12 +43,12 @@ const ProjectCard = ({
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-125"
             >
               <img
                 src={github}
                 alt="source code"
-                className="w-1/2 h-1/2 object-contain"
+                className="w-1/2 h-1/2 object-contain transition-transform duration-300 scale-100 hover:scale-125"
               />
             </div>
           </div>
@@ -77,9 +78,12 @@ const Works = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 3000,
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
@@ -95,7 +99,9 @@ const Works = () => {
       },
     ],
     // Custom arrows
-    nextArrow: <SampleNextArrow />,
+    nextArrow: <SampleNextArrow className="text-black bg-red-50"
+    style={{background: "red"}}
+    />,
     prevArrow: <SamplePrevArrow />,
   };
 
@@ -109,7 +115,7 @@ const Works = () => {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className="mt-3 text-primary dark:text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with

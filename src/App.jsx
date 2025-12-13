@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
 
 import _ from 'lodash';
 
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { useTheme } from './hoc';
+import ThemeTransition from './components/ThemeTransition';
 
 function App() {
 
@@ -13,12 +15,17 @@ function App() {
   const [showEarth, setShowEarth] = useState(false); // Control whether EarthCanvas is displayed or not
   const [showLine, setShowLine] = useState(true); // Control whether LineCanvas is displayed or not
 
+  // const { theme, toggleTheme } = useTheme();
+  // const [transkey, setTransKey] = useState(0);
+  // const [center, setCenter] = useState({ x: 0, y: 0 })
+  // const iconRef = useRef(null);
+
   // Function to handle scroll events
   const handleScroll = useCallback(_.throttle(() => {
     const position = window.scrollY; // Get vertical scroll position
     setScrollPosition(position); // Update state
-    console.log('Current scroll position:', position); // Log the position
-    console.log("BEFORE: ", showEarth)
+    // console.log('Current scroll position:', position); // Log the position
+    // console.log("BEFORE: ", showEarth)
 
     // Show Earth when user scrolls beyond 4000px (only once)
     if (position > 4000 && !showEarth) {
@@ -26,8 +33,6 @@ function App() {
     } else if (position <= 4000 && showEarth) {
       setShowEarth(false);
     }
-
-    console.log("AFTER: ", showEarth)
 
     // hide LineCanvas when user scrolls beyond a certain distance
     if (position > 3500) {
@@ -49,12 +54,11 @@ function App() {
 
   }, [handleScroll]); // Run only once when the component mounts
 
-
   return (
     <div>
       <BrowserRouter>
-        <div className='relative z-0 bg-primary'>
-          <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+        <div className='relative z-0 bg-primary-light dark:bg-primary'>
+          <div className='bg-primary-light dark:bg-hero-pattern dark:bg-cover dark:bg-no-repeat dark:bg-center'>
             <Navbar />
             <Hero showLine={showLine} />
           </div>
@@ -74,9 +78,17 @@ function App() {
 
           </div>
         </div>
+
+        
       </BrowserRouter>
+        {/* <ThemeTransition 
+          triggerKey={transkey}
+          center={center}
+          oldBg={theme === "dark" ? "#050816" : "#E6E6FA"}
+          onComplete={() => setTransKey(0)}
+        /> */}
     </div>
   );
 }
 
-export default App
+export default memo(App)

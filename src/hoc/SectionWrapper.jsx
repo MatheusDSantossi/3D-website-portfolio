@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 
 import { styles } from '../styles';
 import { staggerContainer } from '../utils/motion';
+import { memo } from 'react';
 
 function SectionWrapper(Component, idName) {
   function HOC() {

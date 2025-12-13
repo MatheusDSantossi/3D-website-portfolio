@@ -236,4 +236,3 @@ export class MeshLineMaterial extends ShaderMaterial {
         return this;
     }
 }
-//# sourceMappingURL=MeshLineMaterial.js.map

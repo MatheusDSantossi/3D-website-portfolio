@@ -60,4 +60,3 @@ export class MeshLine extends Mesh {
         }
     }
 }
-//# sourceMappingURL=MeshLine.js.map

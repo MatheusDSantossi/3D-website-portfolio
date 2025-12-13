@@ -9,10 +9,10 @@ import { SectionWrapper } from '../hoc';
 
 const ServiceCard = ({ index, title, icon }) => {
   return (
-    <Tilt className="xs:w-[250px] w-full">
+    <Tilt className="xs:w-[250px] w-full transition-none">
       <motion.div
       variants={fadeIn("right", "spring", 0.5 * index, 0,75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
+      className='w-full black-gradient p-[1px] rounded-[20px] shadow-card'
       >
         <div
         options={{
@@ -20,7 +20,7 @@ const ServiceCard = ({ index, title, icon }) => {
           scale: 1,
           speed: 450
         }}
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
+        className='dark:bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
         >
           <img src={icon} alt={title} 
           className='w-16 h-16 object-contain'
@@ -42,7 +42,7 @@ const About = () => {
 
       <motion.p 
       variants={fadeIn("", "", 0.1, 1)}
-      className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+      className="mt-4 text-primary dark:text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
         I’m a versatile software engineer who loves open-source and thrives on continuous learning. From AI experiments to full-stack apps, I turn ideas into working solutions. Currently diving deeper into machine learning and data science
       </motion.p>

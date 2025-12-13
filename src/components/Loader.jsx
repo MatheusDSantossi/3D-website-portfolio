@@ -1,4 +1,5 @@
 import { Html, useProgress } from '@react-three/drei'
+import { memo } from 'react';
 
 const Loader = () => {
   const { progress } = useProgress();
@@ -18,4 +19,4 @@ const Loader = () => {
   )
 }
 
-export default Loader
+export default memo(Loader)
