@@ -14,7 +14,7 @@ const Tooltip = ({ children, tooltipsText, position, childrenMargin }) => {
       : position === "bottom"
       ? `absolute left-1/2 top-full z-20 mt-3 -translate-x-1/2 whitespace-nowrap rounded bg-primary dark:bg-primary-light px-4 py-[6px] text-sm font-semibold text-white opacity-0 group-hover:opacity-100`
       : // Top position is default
-        `absolute bottom-full z-20 mb-4 -translate-x-1/4 whitespace-nowrap rounded bg-primary dark:bg-primary-light px-4 py-[6px] text-sm font-semibold text-white dark:text-primary opacity-0 group-hover:opacity-100`;
+        `absolute bottom-full z-20 mb-4 -ml-2 -translate-x-1/4 whitespace-nowrap rounded bg-primary dark:bg-primary-light px-4 py-[6px] text-sm font-semibold text-white dark:text-primary opacity-0 group-hover:opacity-100`;
 
   const arrowClass =
     position === "right"
