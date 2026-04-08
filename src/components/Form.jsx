@@ -39,10 +39,10 @@ const Form = () => {
           from_name: data.name,
           to_name: "Matheus",
           from_email: data.email,
-          to_email: "matheusdsantosr.si@gmail.com",
+          to_email: "hello@matheusdsantosr.com",
           message: data.message,
         },
-        "oaoj7C6T5_1hNgRnz"
+        "oaoj7C6T5_1hNgRnz",
       )
       .then(() => {
         // alert("Thank you I'll get back to you as soon as possible!");
