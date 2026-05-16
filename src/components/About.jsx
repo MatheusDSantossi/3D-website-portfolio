@@ -43,8 +43,8 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-primary dark:text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        I’m a versatile Full Stack developer who loves open-source and thrives on
-        continuous learning. From AI experiments to full-stack apps, I turn
+        I’m a versatile Full Stack developer who loves open-source and thrives
+        on continuous learning. From AI experiments to full-stack apps, I turn
         ideas into working solutions. Currently diving deeper into AI and SaaS
       </motion.p>
 
