@@ -37,7 +37,7 @@ const Navbar = () => {
             window.strollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="w-15 h-9 object-contain" />
+          <img src={logo} alt="M logo" className="w-15 h-9 object-contain" />
           <p className="text-primary dark:text-white text-[18px] font-bold cursor-pointer flex flex-col md:flex-row">
             Matheus &nbsp;{" "}
             <span className="sm:block hidden">|&nbsp; D. Santos</span>

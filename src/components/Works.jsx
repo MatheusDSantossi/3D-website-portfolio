@@ -10,7 +10,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../slider-overrides.css"
+import "../slider-overrides.css";
 
 const ProjectCard = ({
   index,
@@ -21,7 +21,7 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div
+    <motion.article
       variants={fadeIn("up", "spring", index * 0.5, 0.75)}
       className="w-full pt-4"
     >
@@ -34,11 +34,18 @@ const ProjectCard = ({
         className="bg-tertiary py-5 rounded-2xl w-full transition-transform duration-100"
       >
         <div className="relative w-full h-[230px]">
-          <img
-            src={image}
-            alt="project_image"
-            className="w-full h-full object-cover rounded-2xl"
-          />
+          <a
+            href={source_code_link}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full h-full "
+          >
+            <img
+              src={image}
+              alt={`${name} project screenshot`}
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          </a>
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
@@ -47,7 +54,7 @@ const ProjectCard = ({
             >
               <img
                 src={github}
-                alt="source code"
+                alt={`Source code for ${name}`}
                 className="w-1/2 h-1/2 object-contain transition-transform duration-300 scale-100 hover:scale-125"
               />
             </div>
@@ -70,7 +77,7 @@ const ProjectCard = ({
           ))}
         </div>
       </Tilt>
-    </motion.div>
+    </motion.article>
   );
 };
 
@@ -99,9 +106,12 @@ const Works = () => {
       },
     ],
     // Custom arrows
-    nextArrow: <SampleNextArrow className="text-black bg-red-50"
-    style={{background: "red"}}
-    />,
+    nextArrow: (
+      <SampleNextArrow
+        className="text-black bg-red-50"
+        style={{ background: "red" }}
+      />
+    ),
     prevArrow: <SamplePrevArrow />,
   };
 

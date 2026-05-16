@@ -17,7 +17,7 @@ import _ from "lodash";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useTheme } from "./hoc";
 import ThemeTransition from "./components/ThemeTransition";
-import { Seo } from "./components/SEO/SEO";
+import { SEO } from "./components/SEO/SEO";
 
 function App() {
   // const [scrollPosition, setScrollPosition] = useState(0); // Initial scroll position
@@ -67,7 +67,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Seo
+        <SEO
           title="Matheus D. Santos | Software Engineer"
           description="Portfolio of Matheus D. Santos, software engineer building web apps, products, and automation tools."
           canonical="https://matheusdsantosr.com/"
