@@ -29,3 +29,4 @@ notes.md
 *.sw?
 
 .vercel
+.vscode
