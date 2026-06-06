@@ -36,6 +36,7 @@ import {
   learning_journey,
   hecate_landing_page,
   plai_landing_page,
+  posture_guard,
 } from "../assets";
 
 export const navLinks = [
@@ -229,9 +230,12 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Social Media",
+    slug: "social-media-app",
+    name: "Social Media App",
+    headline:
+      "A lightweight cross-platform mobile app for real-time user interaction.",
     description:
-      "A mobile app for managing user profiles and social interactions.",
+      "A mobile application designed for smooth user profile management and content sharing. Built to explore cross-platform state management and seamless backend integration, it features responsive layouts and fluid UI animations.",
     tags: [
       {
         name: "flutter",
@@ -247,14 +251,18 @@ const projects = [
       },
     ],
     image: social_media,
-    liveUrl: "",
+    liveUrl: null,
+    featured: false,
     githubUrl:
       "https://github.com/MatheusDSantossi/flutter-project/tree/flutter_project_mobile_v13/flutter_application_v2",
   },
   {
+    slug: "crabby-game",
     name: "Crabby Game",
+    headline:
+      "An educational Java puzzle game teaching block-based logic principles.",
     description:
-      "Crabby Conquest: Mr. Piggy's Adventure is a Java-based block movement game developed as part of a university project for the Man-Machine Interface course. The game introduces players to the concept of block programming by incorporating logical challenges where they manipulate blocks to solve puzzles. Designed as an educational tool, it aims to make programming principles accessible and engaging for beginners while blending creativity and fun into the gameplay.",
+      "Developed as a university project for the Human-Machine Interface course, this desktop game introduces beginners to block-based programming. Players guide 'Mr. Piggy' through puzzles, translating foundational logic and structural thinking into engaging gameplay mechanics.",
     tags: [
       {
         name: "java",
@@ -270,14 +278,18 @@ const projects = [
       },
     ],
     image: crabby_game,
-    liveUrl: "",
+    liveUrl: null,
+    featured: false,
     githubUrl:
       "https://github.com/MatheusDSantossi/projeto-IHM/tree/IHM_project_block_game_vFinal/Documents/universidade_stuff/IHM_stuff/IHM-Project/Project_IHM_full_edition_v9",
   },
   {
+    slug: "portfolio-website",
     name: "Portfolio Website",
+    headline:
+      "My personal developer portfolio showcasing web applications and open-source work.",
     description:
-      "A visually stunning and fully responsive portfolio website built using Next.js, Tailwind CSS, and Framer Motion. This project showcases a modern and dynamic design, incorporating smooth animations and an optimized layout to highlight the work and skills of somebody. Developed as one of my first projects using these technologies, it was inspired by a YouTube tutorial and served as a foundational step in mastering advanced web development tools and frameworks.",
+      "A responsive portfolio built to master modern frontend tools. It served as a practical foundation for implementing fluid motion layouts, structured styling systems, and component-driven architecture from scratch.",
     tags: [
       {
         name: "nextjs",
@@ -293,14 +305,18 @@ const projects = [
       },
     ],
     image: portfolio_website,
-    liveUrl: "",
+    liveUrl: null,
+    featured: false,
     githubUrl:
       "https://github.com/MatheusDSantossi/portfolio-website-p2/tree/web_portfolio_project_2_v1",
   },
   {
+    slug: "learning-journey",
     name: "Learning Journey",
+    headline:
+      "A central repository for tracking my technical growth and code experiments.",
     description:
-      "Welcome to my Learning Journey repository! 🚀 This evolving codebase serves as a digital playground where I document my progress in mastering various programming languages, frameworks, and tools. Currently focused on Python-based projects, this repository will expand to include diverse technologies like Next.js, Tailwind CSS, and more as I explore web development, automation, and beyond.",
+      "An evolving digital playground where I build in public and archive my progress across different languages and domains. From Python automation to modern JavaScript frameworks, it acts as a transparent log of my continuous learning.",
     tags: [
       {
         name: "python",
@@ -320,40 +336,48 @@ const projects = [
       },
     ],
     image: learning_journey,
-    liveUrl: "",
+    liveUrl: null,
+    featured: false,
     githubUrl:
       "https://github.com/MatheusDSantossi/learning-journey/tree/main?tab=readme-ov-file/",
   },
   {
-    name: "Chatbot Hecate Landing Page 🚀",
+    slug: "hecate-landing-page",
+    name: "Chatbot Hecate Landing Page",
+    headline:
+      "A high-performance product page for an intelligent customer terminal chatbot.",
     description:
-      "A clean, responsive React + Tailwind CSS site showcasing Hecate. Our Python/Django AI chatbot.The landing page have: 1) Hero Section: Overlapping robot and laptop images with a clear “AI-Powered” message. 2) Why Hecate?: Radial-gradient feature highlight with dynamic icons and a giant robot-hand graphic. 3) Modular Components: TypeScript + Tailwind v4 for easy reuse and consistent styling.Dive in to see how we turn Hecate’s intelligent tools into an engaging, production-ready landing page.",
+      "A fast, modern showcase for the Hecate AI platform. Built with strong attention to responsive design, using modular component structures and advanced CSS layout techniques to highlight complex product features clean and clearly.",
     tags: [
       {
-        name: "python",
-        color: "green-text-gradient",
-      },
-      {
-        name: "java",
-        color: "white-text-gradient",
-      },
-      {
-        name: "javascript",
+        name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "learning-in-public",
+        name: "tailwind-v4",
+        color: "green-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "building-in-public",
         color: "orange-text-gradient",
       },
     ],
     image: hecate_landing_page,
-    liveUrl: "",
+    liveUrl: null,
+    featured: false,
     githubUrl: "https://github.com/MatheusDSantossi/hecate-landing-page.git",
   },
   {
-    name: "Plai's Landing Page 🎶",
+    slug: "plai-landing-page",
+    name: "Plai's Landing Page",
+    headline:
+      "An interactive page for an AI curation tool converting prompts into custom playlists.",
     description:
-      "A modern, high-converting landing page for Plai — an AI-powered content curation tool that turns plain-language prompts into curated YouTube playlists, learning paths, and personalized content flows tailored to your vibe, goal, or moment. Built and refined in public as part of Plai’s early product journey.",
+      "The official web interface for Plai, an application that translates plain-text user intent into tailored educational streams and content paths. Built with clean UI patterns to drive early user engagement during its public launch.",
     tags: [
       {
         name: "nextjs",
@@ -374,7 +398,38 @@ const projects = [
     ],
     image: plai_landing_page,
     liveUrl: "https://plai.matheusdsantosr.com/",
-    githubUrl: "",
+    featured: true,
+    githubUrl: null,
+  },
+  {
+    slug: "posture-guard",
+    name: "Posture Guard",
+    headline:
+      "A privacy-focused desktop application monitoring posture locally on the edge.",
+    description:
+      "A computer vision desktop utility that helps users maintain healthy ergonomics. By intentional design, all data processing runs strictly on the local hardware; video streams never leave the machine and all session memory clears upon closure.",
+    tags: [
+      {
+        name: "python",
+        color: "white-text-gradient",
+      },
+      {
+        name: "mediapipe",
+        color: "green-text-gradient",
+      },
+      {
+        name: "data-analysis",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "building-in-public",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: posture_guard,
+    liveUrl: null,
+    featured: false,
+    githubUrl: "https://github.com/MatheusDSantossi/posture-guard",
   },
 ];
 
