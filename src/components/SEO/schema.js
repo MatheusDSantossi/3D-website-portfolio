@@ -1,11 +1,13 @@
+import { SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "../../constants/site";
+
 export const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://matheusdsantosr.com/#person",
+  "@id": `${SITE_URL}/#person`,
 
-  name: "Matheus D. Santos",
-  url: "https://matheusdsantosr.com/",
-  image: "https://matheusdsantosr.com/profile.jpg",
+  name: SITE_NAME,
+  url: SITE_URL,
+  image: `${SITE_URL}/profile.jpg`,
 
   jobTitle: "Full Stack Developer",
 
@@ -45,15 +47,15 @@ export const personSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://matheusdsantosr.com/#website",
+  "@id": `${SITE_URL}/#website`,
 
-  url: "https://matheusdsantosr.com/",
-  name: "Matheus D. Santos",
+  url: SITE_URL,
+  name: SITE_NAME,
   description:
     "Portfolio of Matheus D. Santos, fullstack building web applications, AI tools, and SaaS products.",
 
   publisher: {
-    "@id": "https://matheusdsantosr.com/#person",
+    "@id": `${SITE_URL}/#person`,
   },
 
   inLanguage: "en-US",
@@ -62,24 +64,24 @@ export const websiteSchema = {
 export const webpageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://matheusdsantosr.com/#webpage",
+  "@id": `${SITE_URL}/#webpage`,
 
-  url: "https://matheusdsantosr.com/",
-  name: "Matheus D. Santos | Fullstack developer",
+  url: SITE_URL,
+  name: `${SITE_NAME} | Fullstack developer`,
   description:
     "Portfolio of Matheus D. Santos, Fullstack developer building web applications, AI tools, and SaaS products.",
 
   isPartOf: {
-    "@id": "https://matheusdsantosr.com/#website",
+    "@id": `${SITE_URL}/#website`,
   },
 
   about: {
-    "@id": "https://matheusdsantosr.com/#about",
+    "@id": `${SITE_URL}/#about`,
   },
 
   primaryImageOfPage: {
     "@type": "ImageObject",
-    url: "https://matheusdsantosr.com/og-image.png",
+    url: SITE_OG_IMAGE,
   },
 
   inLanguage: "en-US",

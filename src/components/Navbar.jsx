@@ -34,7 +34,7 @@ const Navbar = () => {
           className="flex items-center gap-2"
           onClick={() => {
             setActive("");
-            window.strollTo(0, 0);
+            window.scrollTo(0, 0);
           }}
         >
           <img src={logo} alt="M logo" className="w-15 h-9 object-contain" />

@@ -1,24 +1,13 @@
 import { useState, useEffect, useCallback, memo } from "react";
-import { BrowserRouter } from "react-router-dom";
-import {
-  About,
-  Contact,
-  Experience,
-  Feedbacks,
-  Hero,
-  Navbar,
-  Tech,
-  Works,
-  StarsCanvas,
-} from "./components";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import _ from "lodash";
 
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import { useTheme } from "./hoc";
-import ThemeTransition from "./components/ThemeTransition";
-import { SEO } from "./components/SEO/SEO";
-import StructuredData from "./components/SEO/StructuredData";
+import HomePage from "./pages/HomePage";
+import ProjectPage from "./pages/ProjectPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   // const [scrollPosition, setScrollPosition] = useState(0); // Initial scroll position
@@ -68,40 +57,18 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <SEO
-          title="Matheus D. Santos | Software Engineer"
-          description="Portfolio of Matheus D. Santos, software engineer building web apps, products, and automation tools."
-          canonical="https://matheusdsantosr.com/"
-          image="https://matheusdsantosr.com/og-image.png"
-        />
-        <StructuredData />
-        <div className="relative z-0 bg-primary-light dark:bg-primary">
-          <div className="bg-primary-light dark:bg-hero-pattern dark:bg-cover dark:bg-no-repeat dark:bg-center">
-            <Navbar />
-            <Hero showLine={showLine} />
-          </div>
-          <About />
-          <Experience />
-          <Tech />
-          <Works />
-          <SpeedInsights />
-          {/* <Feedbacks /> */}
-
-          <div className="relative z-0">
-            {/* Mount EarthCanvas only once */}
-            <Contact />
-            {showEarth && <StarsCanvas />}
-
-            {/* <StarsCanvas /> */}
-          </div>
-        </div>
+        <ScrollToTop />
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage showLine={showLine} showEarth={showEarth} />}
+          />
+          <Route path="/projects/:slug" element={<ProjectPage />} />
+          <Route path="/404" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <SpeedInsights />
       </BrowserRouter>
-      {/* <ThemeTransition 
-          triggerKey={transkey}
-          center={center}
-          oldBg={theme === "dark" ? "#050816" : "#E6E6FA"}
-          onComplete={() => setTransKey(0)}
-        /> */}
     </div>
   );
 }

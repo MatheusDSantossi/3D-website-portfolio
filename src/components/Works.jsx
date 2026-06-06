@@ -1,4 +1,5 @@
 import { Tilt } from "react-tilt";
+import { Link } from "react-router-dom";
 import {
   motion,
   useMotionTemplate,
@@ -9,10 +10,10 @@ import { useReducedMotion } from "framer-motion";
 
 import { styles } from "../styles";
 import { github } from "../assets";
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn } from "../utils/motion";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -21,6 +22,7 @@ import "../slider-overrides.css";
 
 const ProjectCard = ({
   index,
+  slug,
   name,
   description,
   tags,
@@ -57,8 +59,9 @@ const ProjectCard = ({
 
   const primaryUrl = liveUrl || githubUrl;
   const primaryType = liveUrl ? "live" : "source";
+  const caseStudyUrl = `/projects/${slug}`;
 
-  const PrimaryIcon = liveUrl ? ExternalLink : Github;
+  const PrimaryIcon = liveUrl ? ExternalLink : null;
 
   return (
     <motion.article
@@ -132,11 +135,20 @@ const ProjectCard = ({
                         ? `Open live demo for ${name}`
                         : `Open source code for ${name}`
                     }
-                  >
-                    <PrimaryIcon
-                      className="h-5 w-5 text-white"
-                      aria-hidden="true"
-                    />
+                    >
+                    {liveUrl ? (
+                      <PrimaryIcon
+                        className="h-5 w-5 text-white"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <img
+                        src={github}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-5 w-5 object-contain"
+                      />
+                    )}
                   </a>
                 </div>
               )}
@@ -168,8 +180,15 @@ const ProjectCard = ({
               ))}
             </div>
 
-            {liveUrl && githubUrl && (
-              <div className="mt-5 flex gap-3">
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link
+                to={caseStudyUrl}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/5"
+              >
+                Case study
+              </Link>
+
+              {liveUrl && (
                 <a
                   href={liveUrl}
                   target="_blank"
@@ -179,18 +198,25 @@ const ProjectCard = ({
                   <ExternalLink className="h-4 w-4" />
                   Live demo
                 </a>
+              )}
 
+              {githubUrl && (
                 <a
                   href={githubUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/5"
                 >
-                  <Github className="h-4 w-4" />
+                  <img
+                    src={github}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-4 w-4 object-contain"
+                  />
                   Source code
                 </a>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </motion.div>
       </Tilt>

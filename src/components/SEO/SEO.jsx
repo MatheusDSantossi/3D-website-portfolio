@@ -6,12 +6,14 @@ export function SEO({
   canonical,
   image,
   type = "website",
+  imageAlt = "Portfolio preview",
+  robots = "index, follow",
 }) {
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robots} />
 
       {canonical && <link rel="canonical" href={canonical} />}
 
@@ -24,7 +26,7 @@ export function SEO({
       {image && (
         <meta
           property="og:image:alt"
-          content="Matheus D. Santos portfolio preview"
+          content={imageAlt}
         />
       )}
 
@@ -35,7 +37,7 @@ export function SEO({
       {image && (
         <meta
           name="twitter:image:alt"
-          content="Matheus D. Santos portfolio preview"
+          content={imageAlt}
         />
       )}
     </Helmet>

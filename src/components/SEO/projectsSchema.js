@@ -1,9 +1,11 @@
+import { SITE_NAME, SITE_URL } from "../../constants/site";
+
 export function buildProjectsSchema(projects) {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "@id": "https://matheusdsantosr.com/#projects",
-    name: "Matheus D. Santos Projects",
+    "@id": `${SITE_URL}/#projects`,
+    name: `${SITE_NAME} Projects`,
     itemListElement: projects.map((project, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -15,8 +17,8 @@ export function buildProjectsSchema(projects) {
         image: project.image,
         creator: {
           "@type": "Person",
-          name: "Matheus D. Santos",
-          url: "https://matheusdsantosr.com/",
+          name: SITE_NAME,
+          url: SITE_URL,
         },
         codeRepository: project.githubUrl || project.source_code_link,
         keywords: project.tags.map((tag) => tag.name).join(", "),

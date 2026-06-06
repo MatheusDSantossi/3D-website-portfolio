@@ -1,25 +1,30 @@
-// src/components/SEO/portfolioSchema.js
+import {
+  SITE_NAME,
+  SITE_OG_IMAGE,
+  SITE_URL,
+  getAbsoluteUrl,
+  getProjectUrl,
+} from "../../constants/site";
+
 export function buildPortfolioSchema(projects) {
-  const personId = "https://matheusdsantosr.com/#person";
-  const websiteId = "https://matheusdsantosr.com/#website";
-  const webpageId = "https://matheusdsantosr.com/#webpage";
-  const projectsId = "https://matheusdsantosr.com/#projects";
+  const personId = `${SITE_URL}/#person`;
+  const websiteId = `${SITE_URL}/#website`;
+  const webpageId = `${SITE_URL}/#webpage`;
+  const projectsId = `${SITE_URL}/#projects`;
 
   const projectEntities = projects.map((project) => {
     const url =
-      project.liveUrl ||
-      project.githubUrl ||
-      `https://matheusdsantosr.com/#project-${project.slug}`;
+      project.liveUrl || project.githubUrl || getProjectUrl(project.slug);
 
     const isSoftwareApplication = Boolean(project.liveUrl);
 
     return {
       "@type": isSoftwareApplication ? "SoftwareApplication" : "CreativeWork",
-      "@id": `https://matheusdsantosr.com/#project-${project.slug}`,
+      "@id": `${SITE_URL}/#project-${project.slug}`,
       name: project.name,
       description: project.description,
       url,
-      image: project.image,
+      image: getAbsoluteUrl(project.image),
       creator: {
         "@id": personId,
       },
@@ -40,9 +45,9 @@ export function buildPortfolioSchema(projects) {
       {
         "@type": "Person",
         "@id": personId,
-        name: "Matheus D. Santos",
-        url: "https://matheusdsantosr.com/",
-        image: "https://matheusdsantosr.com/og-image.png",
+        name: SITE_NAME,
+        url: SITE_URL,
+        image: SITE_OG_IMAGE,
         jobTitle: "Software Engineer",
         description:
           "Software engineer and full stack developer specializing in React, Python, AI applications, and SaaS products.",
@@ -72,8 +77,8 @@ export function buildPortfolioSchema(projects) {
       {
         "@type": "WebSite",
         "@id": websiteId,
-        url: "https://matheusdsantosr.com/",
-        name: "Matheus D. Santos",
+        url: SITE_URL,
+        name: SITE_NAME,
         description:
           "Portfolio of Matheus D. Santos, fullstack building web applications, AI tools, and SaaS products.",
         publisher: {
@@ -84,8 +89,8 @@ export function buildPortfolioSchema(projects) {
       {
         "@type": "WebPage",
         "@id": webpageId,
-        url: "https://matheusdsantosr.com/",
-        name: "Matheus D. Santos | Software Engineer",
+        url: SITE_URL,
+        name: `${SITE_NAME} | Software Engineer`,
         description:
           "Portfolio of Matheus D. Santos, fullstack building web applications, AI tools, and SaaS products.",
         isPartOf: {
@@ -96,7 +101,7 @@ export function buildPortfolioSchema(projects) {
         },
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: "https://matheusdsantosr.com/og-image.png",
+          url: SITE_OG_IMAGE,
         },
         mainEntity: {
           "@id": personId,

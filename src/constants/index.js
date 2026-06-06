@@ -38,6 +38,7 @@ import {
   plai_landing_page,
   posture_guard,
 } from "../assets";
+import { getProjectUrl } from "./site";
 
 export const navLinks = [
   {
@@ -372,7 +373,8 @@ const projects = [
     githubUrl: "https://github.com/MatheusDSantossi/hecate-landing-page.git",
   },
   {
-    slug: "plai-landing-page",
+    slug: "plai",
+    aliases: ["plai-landing-page"],
     name: "Plai's Landing Page",
     headline:
       "An interactive page for an AI curation tool converting prompts into custom playlists.",
@@ -400,6 +402,55 @@ const projects = [
     liveUrl: "https://plai.matheusdsantosr.com/",
     featured: true,
     githubUrl: null,
+    detail: {
+      seoTitle: "Plai Case Study",
+      seoDescription:
+        "A case study for Plai, an AI-powered web app that turns plain-language prompts into curated learning playlists and content paths.",
+      valueProposition:
+        "Plai turns a simple prompt into a tailored learning playlist, helping users move from curiosity to a structured path faster.",
+      whatItIs:
+        "Plai is a web application for AI-guided content curation. The landing page was designed to communicate the product vision quickly, build trust, and drive early launch engagement.",
+      problem:
+        "The product needed a clear, persuasive public-facing experience that explained the value of prompt-based curation without overwhelming first-time visitors.",
+      solution:
+        "I designed a focused landing page with concise messaging, strong hierarchy, and visual storytelling so the core product idea could be understood in seconds.",
+      stack: [
+        {
+          title: "Frontend",
+          items: ["Next.js", "React", "TypeScript"],
+        },
+        {
+          title: "Design System",
+          items: [
+            "Responsive layout",
+            "Accessible components",
+            "Tailwind CSS patterns",
+          ],
+        },
+        {
+          title: "Product Focus",
+          items: [
+            "AI-assisted curation",
+            "Launch marketing",
+            "Public-facing growth",
+          ],
+        },
+      ],
+      results: [
+        "Shipped a polished launch page that could support a public product introduction.",
+        "Created a clearer product narrative for the AI curation workflow.",
+        "Established a reusable structure that can expand into a larger product marketing site.",
+      ],
+      links: [
+        {
+          label: "Live site",
+          href: "https://plai.matheusdsantosr.com/",
+          type: "primary",
+        },
+      ],
+      schemaType: "WebApplication",
+      imageAlt: "Plai landing page preview",
+    },
   },
   {
     slug: "posture-guard",
@@ -434,3 +485,15 @@ const projects = [
 ];
 
 export { services, technologies, experiences, testimonials, projects };
+
+export const featuredProjects = projects.filter((project) => project.featured);
+
+export const getProjectBySlug = (slug) =>
+  projects.find(
+    (project) => project.slug === slug || project.aliases?.includes(slug),
+  );
+
+export const getProjectCanonicalUrl = (slug) => {
+  const project = getProjectBySlug(slug);
+  return project ? getProjectUrl(project.slug) : getProjectUrl(slug);
+};
