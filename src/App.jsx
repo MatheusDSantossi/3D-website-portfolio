@@ -18,6 +18,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useTheme } from "./hoc";
 import ThemeTransition from "./components/ThemeTransition";
 import { SEO } from "./components/SEO/SEO";
+import StructuredData from "./components/SEO/StructuredData";
 
 function App() {
   // const [scrollPosition, setScrollPosition] = useState(0); // Initial scroll position
@@ -73,6 +74,7 @@ function App() {
           canonical="https://matheusdsantosr.com/"
           image="https://matheusdsantosr.com/og-image.png"
         />
+        <StructuredData />
         <div className="relative z-0 bg-primary-light dark:bg-primary">
           <div className="bg-primary-light dark:bg-hero-pattern dark:bg-cover dark:bg-no-repeat dark:bg-center">
             <Navbar />

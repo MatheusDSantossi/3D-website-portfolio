@@ -9,6 +9,7 @@ import { useReducedMotion } from "framer-motion";
 
 import { styles } from "../styles";
 import { github } from "../assets";
+import { Github, ExternalLink } from "lucide-react";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
@@ -24,7 +25,8 @@ const ProjectCard = ({
   description,
   tags,
   image,
-  source_code_link,
+  githubUrl,
+  liveUrl,
 }) => {
   const prefersReducedMotion = useReducedMotion();
   const mouseX = useMotionValue(50);
@@ -53,10 +55,16 @@ const ProjectCard = ({
     glowY.set(50);
   };
 
+  const primaryUrl = liveUrl || githubUrl;
+  const primaryType = liveUrl ? "live" : "source";
+
+  const PrimaryIcon = liveUrl ? ExternalLink : Github;
+
   return (
     <motion.article
       variants={fadeIn("up", "spring", index * 0.5, 0.75)}
       className="group w-full pt-4"
+      aria-labelledby={`project-${index}-title`}
     >
       <Tilt
         options={{
@@ -76,54 +84,69 @@ const ProjectCard = ({
           className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-tertiary/95 to-tertiary/80 p-[1px] shadow-[0_24px_55px_-30px_rgba(0,0,0,0.9)]"
         >
           <motion.div
-            aria-hidden
+            aria-hidden="true"
             className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             style={{ background: lightMask }}
           />
 
           <div className="relative z-10 rounded-[15px] bg-[#100d25]/95 p-4 backdrop-blur-sm sm:p-5">
             <div className="relative h-[220px] w-full overflow-hidden rounded-xl sm:h-[230px]">
-              <motion.a
-                href={source_code_link}
-                target="_blank"
-                rel="noreferrer"
-                className="block h-full w-full"
-                whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 180, damping: 20 }}
-              >
+              {primaryUrl ? (
+                <a
+                  href={primaryUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block h-full w-full"
+                  aria-label={
+                    primaryType === "live"
+                      ? `Open live demo for ${name}`
+                      : `Open source code for ${name}`
+                  }
+                >
+                  <motion.img
+                    src={image}
+                    alt={`${name} project screenshot`}
+                    className="h-full w-full object-cover"
+                    style={prefersReducedMotion ? {} : { x: imageX, y: imageY }}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                </a>
+              ) : (
                 <motion.img
                   src={image}
                   alt={`${name} project screenshot`}
                   className="h-full w-full object-cover"
                   style={prefersReducedMotion ? {} : { x: imageX, y: imageY }}
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-              </motion.a>
+              )}
 
-              <motion.div
-                initial={{ opacity: 0.88 }}
-                whileHover={prefersReducedMotion ? {} : { opacity: 1 }}
-                className="absolute right-3 top-3 card-img_hover"
-              >
-                <a
-                  href={source_code_link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="black-gradient flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-transform duration-300 hover:scale-110"
-                  aria-label={`Open source code for ${name}`}
-                >
-                  <img
-                    src={github}
-                    alt=""
-                    className="h-1/2 w-1/2 object-contain"
-                    aria-hidden
-                  />
-                </a>
-              </motion.div>
+              {primaryUrl && (
+                <div className="absolute right-3 top-3 card-img_hover">
+                  <a
+                    href={primaryUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="black-gradient flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-transform duration-300 hover:scale-110"
+                    aria-label={
+                      primaryType === "live"
+                        ? `Open live demo for ${name}`
+                        : `Open source code for ${name}`
+                    }
+                  >
+                    <PrimaryIcon
+                      className="h-5 w-5 text-white"
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
+              )}
             </div>
 
             <div className="mt-5">
-              <h3 className="text-[22px] font-extrabold leading-snug text-white sm:text-[24px]">
+              <h3
+                id={`project-${index}-title`}
+                className="text-[22px] font-extrabold leading-snug text-white sm:text-[24px]"
+              >
                 {name}
               </h3>
               <p className="mt-2 text-[14px] leading-[1.7] text-secondary">
@@ -131,32 +154,43 @@ const ProjectCard = ({
               </p>
             </div>
 
-            <motion.div
+            <div
               className="mt-5 flex flex-wrap gap-2"
-              variants={{
-                hover: {
-                  transition: {
-                    staggerChildren: 0.035,
-                  },
-                },
-              }}
-              whileHover={prefersReducedMotion ? "rest" : "hover"}
-              initial="rest"
+              aria-label={`${name} technologies`}
             >
               {tags.map((tag) => (
-                <motion.span
+                <span
                   key={`${name}-${tag.name}`}
-                  variants={{
-                    rest: { y: 0, opacity: 0.95 },
-                    hover: { y: -2, opacity: 1 },
-                  }}
-                  transition={{ type: "spring", stiffness: 240, damping: 20 }}
                   className={`rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[13px] leading-none ${tag.color}`}
                 >
                   #{tag.name}
-                </motion.span>
+                </span>
               ))}
-            </motion.div>
+            </div>
+
+            {liveUrl && githubUrl && (
+              <div className="mt-5 flex gap-3">
+                <a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/5"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  Live demo
+                </a>
+
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/5"
+                >
+                  <Github className="h-4 w-4" />
+                  Source code
+                </a>
+              </div>
+            )}
           </div>
         </motion.div>
       </Tilt>
@@ -199,7 +233,7 @@ const Works = () => {
   };
 
   return (
-    <>
+    <section id="projects" aria-labelledby="projects-title">
       <motion.div>
         <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Projects</h2>
@@ -210,11 +244,9 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-primary dark:text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories and live demos in it. It reflects my
-          ability to solve complex problems, work with different technologies,
-          and manage projects effectively.
+          These projects showcase my experience through real-world examples.
+          Each one includes a short description, the technologies used, and a
+          link to either the live demo or the source code.
         </motion.p>
       </div>
 
@@ -231,7 +263,7 @@ const Works = () => {
           ))}
         </Slider>
       </div>
-    </>
+    </section>
   );
 };
 

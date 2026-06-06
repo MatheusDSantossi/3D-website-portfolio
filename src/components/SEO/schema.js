@@ -16,6 +16,8 @@ export const personSchema = {
     "https://github.com/MatheusDSantossi",
     "https://www.linkedin.com/in/matheussantossi",
     "https://x.com/MSantos79880",
+    "https://www.reddit.com/user/matheusdsantosr",
+    "https://dribbble.com/matheusdsantosr",
   ],
 
   knowsAbout: [
@@ -25,6 +27,8 @@ export const personSchema = {
     "TypeScript",
     "Python",
     "Java",
+    "Tailwind CSS",
+    "Flutter",
     "Machine Learning",
     "Artificial Intelligence",
     "SaaS Development",
@@ -46,7 +50,7 @@ export const websiteSchema = {
   url: "https://matheusdsantosr.com/",
   name: "Matheus D. Santos",
   description:
-    "Portfolio of Matheus D. Santos, software engineer building web applications, AI tools, and SaaS products.",
+    "Portfolio of Matheus D. Santos, fullstack building web applications, AI tools, and SaaS products.",
 
   publisher: {
     "@id": "https://matheusdsantosr.com/#person",
@@ -61,16 +65,16 @@ export const webpageSchema = {
   "@id": "https://matheusdsantosr.com/#webpage",
 
   url: "https://matheusdsantosr.com/",
-  name: "Matheus D. Santos | Software Engineer",
+  name: "Matheus D. Santos | Fullstack developer",
   description:
-    "Portfolio of Matheus D. Santos, software engineer building web applications, AI tools, and SaaS products.",
+    "Portfolio of Matheus D. Santos, Fullstack developer building web applications, AI tools, and SaaS products.",
 
   isPartOf: {
     "@id": "https://matheusdsantosr.com/#website",
   },
 
   about: {
-    "@id": "https://matheusdsantosr.com/#person",
+    "@id": "https://matheusdsantosr.com/#about",
   },
 
   primaryImageOfPage: {

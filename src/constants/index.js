@@ -35,6 +35,7 @@ import {
   portfolio_website,
   learning_journey,
   hecate_landing_page,
+  plai_landing_page,
 } from "../assets";
 
 export const navLinks = [
@@ -230,7 +231,7 @@ const projects = [
   {
     name: "Social Media",
     description:
-      "A mobile platform that allows users to navigate through the system, see, and manage their perfil informaiton, providing a convenient and efficient solution for social media.",
+      "A mobile app for managing user profiles and social interactions.",
     tags: [
       {
         name: "flutter",
@@ -246,7 +247,8 @@ const projects = [
       },
     ],
     image: social_media,
-    source_code_link:
+    liveUrl: "",
+    githubUrl:
       "https://github.com/MatheusDSantossi/flutter-project/tree/flutter_project_mobile_v13/flutter_application_v2",
   },
   {
@@ -268,7 +270,8 @@ const projects = [
       },
     ],
     image: crabby_game,
-    source_code_link:
+    liveUrl: "",
+    githubUrl:
       "https://github.com/MatheusDSantossi/projeto-IHM/tree/IHM_project_block_game_vFinal/Documents/universidade_stuff/IHM_stuff/IHM-Project/Project_IHM_full_edition_v9",
   },
   {
@@ -290,7 +293,8 @@ const projects = [
       },
     ],
     image: portfolio_website,
-    source_code_link:
+    liveUrl: "",
+    githubUrl:
       "https://github.com/MatheusDSantossi/portfolio-website-p2/tree/web_portfolio_project_2_v1",
   },
   {
@@ -316,7 +320,8 @@ const projects = [
       },
     ],
     image: learning_journey,
-    source_code_link:
+    liveUrl: "",
+    githubUrl:
       "https://github.com/MatheusDSantossi/learning-journey/tree/main?tab=readme-ov-file/",
   },
   {
@@ -342,8 +347,34 @@ const projects = [
       },
     ],
     image: hecate_landing_page,
-    source_code_link:
-      "https://github.com/MatheusDSantossi/hecate-landing-page.git",
+    liveUrl: "",
+    githubUrl: "https://github.com/MatheusDSantossi/hecate-landing-page.git",
+  },
+  {
+    name: "Plai's Landing Page 🎶",
+    description:
+      "A modern, high-converting landing page for Plai — an AI-powered content curation tool that turns plain-language prompts into curated YouTube playlists, learning paths, and personalized content flows tailored to your vibe, goal, or moment. Built and refined in public as part of Plai’s early product journey.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "white-text-gradient",
+      },
+      {
+        name: "react",
+        color: "green-text-gradient",
+      },
+      {
+        name: "AI",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "building-in-public",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: plai_landing_page,
+    liveUrl: "https://plai.matheusdsantosr.com/",
+    githubUrl: "",
   },
 ];
 
