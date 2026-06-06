@@ -47,6 +47,7 @@ import portfolio_website from "./project_3.png";
 import learning_journey from "./project_4.jpg";
 import hecate_landing_page from "./project_5.png";
 import plai_landing_page from "./project_6.png";
+import posture_guard from "./project_7.png";
 
 export {
   logo,
@@ -91,4 +92,5 @@ export {
   learning_journey,
   hecate_landing_page,
   plai_landing_page,
+  posture_guard
 };
