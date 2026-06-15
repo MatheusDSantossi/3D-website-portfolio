@@ -1,5 +1,6 @@
 // import logo from "./logo.svg";
-import logo from "./m-high-resolution-logo-transparent.svg";
+// import logo from "./m-high-resolution-logo-transparent.svg";
+import logo from "./new-logo.png";
 import backend from "./backend.png";
 // import creator from "./creator.png";
 import frontendDeveloper from "./frontend_developer.png";
@@ -24,9 +25,9 @@ import mysql from "./tech/mysql.svg";
 // import mongodb from "./tech/mongodb.png";
 // import redux from "./tech/redux.png";
 
-import java from './tech/java.svg';
-import postgresql from './tech/postgresql.svg';
-import python from './tech/python.svg';
+import java from "./tech/java.svg";
+import postgresql from "./tech/postgresql.svg";
+import python from "./tech/python.svg";
 
 // import meta from "./company/meta.png";
 // import shopify from "./company/shopify.png";
@@ -46,6 +47,8 @@ import crabby_game from "./project_2.png";
 import portfolio_website from "./project_3.png";
 import learning_journey from "./project_4.jpg";
 import hecate_landing_page from "./project_5.png";
+import plai_landing_page from "./project_6.png";
+import posture_guard from "./project_7.png";
 
 export {
   logo,
@@ -89,4 +92,6 @@ export {
   portfolio_website,
   learning_journey,
   hecate_landing_page,
+  plai_landing_page,
+  posture_guard,
 };

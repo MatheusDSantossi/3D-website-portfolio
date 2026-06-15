@@ -12,7 +12,11 @@ const Hero = ({ showLine }) => {
   console.log("Theme: ", currentTheme);
 
   return (
-    <section className="relative w-full h-screen mx-auto bg-primary-light">
+    <section
+      id="hero"
+      aria-labelledby="hero-title"
+      className="relative w-full h-screen mx-auto bg-primary-light"
+    >
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
@@ -22,13 +26,12 @@ const Hero = ({ showLine }) => {
         </div>
 
         <div>
-          {/* <h1 className={`${styles.heroHeadText} text-primary dark:text-white`}> */}
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-[#915eff]">Matheus</span>
+            Hi, I&apos;m <span className="text-[#915eff]">Matheus</span>
           </h1>
           {/* <p className={`${styles.heroSubText} mt-2 text-[#28292e]  dark:text-secondary`}> */}
           <p className={`${styles.heroSubText} mt-2 text-secondary`}>
-            I’m a versatile software developer{" "}
+            I’m a versatile full stack developer{" "}
             <br className="sm:block hidden" /> crafting everything from
             AI-powered chatbots to scalable web and cross-platform apps. I
             thrive on turning data into insights and building intuitive user
@@ -40,7 +43,9 @@ const Hero = ({ showLine }) => {
         </div>
       </div>
       {showLine && (
-        <Line background={`${currentTheme === "dark" ? "#050816" : "#E6E6FA"}`} />
+        <Line
+          background={`${currentTheme === "dark" ? "#050816" : "#E6E6FA"}`}
+        />
         // <Line background={`${currentTheme === "dark" ? "#050816" : "#E6E6FA"}`} />
       )}
       {/* <Line /> */}
