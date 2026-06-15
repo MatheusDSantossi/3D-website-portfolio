@@ -1,5 +1,6 @@
 // import logo from "./logo.svg";
-import logo from "./m-high-resolution-logo-transparent.svg";
+// import logo from "./m-high-resolution-logo-transparent.svg";
+import logo from "./new-logo.png";
 import backend from "./backend.png";
 // import creator from "./creator.png";
 import frontendDeveloper from "./frontend_developer.png";
@@ -92,5 +93,5 @@ export {
   learning_journey,
   hecate_landing_page,
   plai_landing_page,
-  posture_guard
+  posture_guard,
 };
