@@ -94,6 +94,7 @@ export function buildProjectSchema(project) {
         description,
         url: project.liveUrl || canonical,
         image,
+        ...(project.seo?.lastmod ? { dateModified: project.seo.lastmod } : {}),
         creator: {
           "@id": `${SITE_URL}/#person`,
         },

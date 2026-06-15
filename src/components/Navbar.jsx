@@ -22,6 +22,17 @@ const Navbar = () => {
 
   // PROBLEM? It only draws my app once, so it doesn't update when I need to.
 
+  const renderNavLink = (link, className = "") =>
+    link.id === "projects" ? (
+      <Link className={className} to="/projects">
+        {link.title}
+      </Link>
+    ) : (
+      <a className={className} href={`#${link.id}`}>
+        {link.title}
+      </a>
+    );
+
   return (
     <nav
       className={`${styles.paddingX}
@@ -47,16 +58,15 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <li
               key={link.id}
-              className={`
-                ${
-                  active === link.title
-                    ? "text-primary dark:text-white"
-                    : "text-gray-600 dark:text-secondary"
-                }
+              className={`${
+                active === link.title
+                  ? "text-primary dark:text-white"
+                  : "text-gray-600 dark:text-secondary"
+              }
                   hover:text-tertiary dark:hover:text-gray-300 text-[18px] font-medium cursor-pointer transition-none`}
               onClick={() => setActive(link.title)}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              {renderNavLink(link)}
             </li>
           ))}
 
@@ -123,12 +133,10 @@ const Navbar = () => {
                     setActive(link.title);
                   }}
                 >
-                  <a
-                    className="transition-all hover:text-gray-300 dark:hover:text-tertiary"
-                    href={`#${link.id}`}
-                  >
-                    {link.title}
-                  </a>
+                  {renderNavLink(
+                    link,
+                    "transition-all hover:text-gray-300 dark:hover:text-tertiary",
+                  )}
                 </li>
               ))}
               {theme == "dark" ? (

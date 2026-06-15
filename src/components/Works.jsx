@@ -260,9 +260,15 @@ const Works = () => {
 
   return (
     <section id="projects" aria-labelledby="projects-title">
-      <motion.div>
+      <motion.div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Projects</h2>
+        <Link
+          to="/projects"
+          className="inline-flex items-center justify-center rounded-full border border-primary/10 bg-white/70 px-5 py-3 text-sm font-semibold text-primary transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-black-100/60 dark:text-white"
+        >
+          View all projects
+        </Link>
       </motion.div>
 
       <div className="w-full flex">

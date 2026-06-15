@@ -5,6 +5,7 @@ import _ from "lodash";
 
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import HomePage from "./pages/HomePage";
+import ProjectsHubPage from "./pages/ProjectsHubPage";
 import ProjectPage from "./pages/ProjectPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ScrollToTop from "./components/ScrollToTop";
@@ -63,6 +64,7 @@ function App() {
             path="/"
             element={<HomePage showLine={showLine} showEarth={showEarth} />}
           />
+          <Route path="/projects" element={<ProjectsHubPage />} />
           <Route path="/projects/:slug" element={<ProjectPage />} />
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />

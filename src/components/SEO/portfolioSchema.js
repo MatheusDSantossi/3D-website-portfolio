@@ -14,7 +14,7 @@ export function buildPortfolioSchema(projects) {
 
   const projectEntities = projects.map((project) => {
     const url =
-      project.liveUrl || project.githubUrl || getProjectUrl(project.slug);
+      getProjectUrl(project.slug);
 
     const isSoftwareApplication = Boolean(project.liveUrl);
 

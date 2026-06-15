@@ -50,6 +50,10 @@ export const navLinks = [
     title: "Work",
   },
   {
+    id: "projects",
+    title: "Projects",
+  },
+  {
     id: "contact",
     title: "Contact",
   },
@@ -254,6 +258,9 @@ const projects = [
     image: social_media,
     liveUrl: null,
     featured: false,
+    seo: {
+      lastmod: "2026-06-15",
+    },
     githubUrl:
       "https://github.com/MatheusDSantossi/flutter-project/tree/flutter_project_mobile_v13/flutter_application_v2",
   },
@@ -281,6 +288,9 @@ const projects = [
     image: crabby_game,
     liveUrl: null,
     featured: false,
+    seo: {
+      lastmod: "2026-06-15",
+    },
     githubUrl:
       "https://github.com/MatheusDSantossi/projeto-IHM/tree/IHM_project_block_game_vFinal/Documents/universidade_stuff/IHM_stuff/IHM-Project/Project_IHM_full_edition_v9",
   },
@@ -308,6 +318,9 @@ const projects = [
     image: portfolio_website,
     liveUrl: null,
     featured: false,
+    seo: {
+      lastmod: "2026-06-15",
+    },
     githubUrl:
       "https://github.com/MatheusDSantossi/portfolio-website-p2/tree/web_portfolio_project_2_v1",
   },
@@ -339,6 +352,9 @@ const projects = [
     image: learning_journey,
     liveUrl: null,
     featured: false,
+    seo: {
+      lastmod: "2026-06-15",
+    },
     githubUrl:
       "https://github.com/MatheusDSantossi/learning-journey/tree/main?tab=readme-ov-file/",
   },
@@ -370,6 +386,9 @@ const projects = [
     image: hecate_landing_page,
     liveUrl: null,
     featured: false,
+    seo: {
+      lastmod: "2026-06-15",
+    },
     githubUrl: "https://github.com/MatheusDSantossi/hecate-landing-page.git",
   },
   {
@@ -401,6 +420,9 @@ const projects = [
     image: plai_landing_page,
     liveUrl: "https://plai.matheusdsantosr.com/",
     featured: true,
+    seo: {
+      lastmod: "2026-06-15",
+    },
     githubUrl: null,
     detail: {
       seoTitle: "Plai Case Study",
@@ -480,6 +502,9 @@ const projects = [
     image: posture_guard,
     liveUrl: null,
     featured: false,
+    seo: {
+      lastmod: "2026-06-15",
+    },
     githubUrl: "https://github.com/MatheusDSantossi/posture-guard",
   },
 ];

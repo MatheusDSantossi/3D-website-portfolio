@@ -3,6 +3,7 @@ import { ArrowLeft, ExternalLink, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { github } from "../assets";
+import { projects } from "../constants";
 import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
 import { getAbsoluteUrl } from "../constants/site";
@@ -67,6 +68,22 @@ const renderLinks = (project) => {
   return links;
 };
 
+const getRelatedProjects = (project) =>
+  projects
+    .filter((item) => item.slug !== project.slug)
+    .map((item) => {
+      const sharedTags = item.tags.filter((tag) =>
+        project.tags?.some((projectTag) => projectTag.name === tag.name),
+      ).length;
+
+      return {
+        ...item,
+        score: (item.featured === project.featured ? 1 : 0) + sharedTags,
+      };
+    })
+    .sort((left, right) => right.score - left.score)
+    .slice(0, 3);
+
 function InfoCard({ title, children, index }) {
   return (
     <motion.section
@@ -93,11 +110,9 @@ export default function ProjectDetail({ project }) {
   const stackGroups = renderStackGroups(project);
   const results = renderResults(project);
   const links = renderLinks(project);
-  const imageSrc =
-    project.image ?? getAbsoluteUrl(project.detail?.image || project.image);
+  const relatedProjects = getRelatedProjects(project);
+  const imageSrc = getAbsoluteUrl(project.detail?.image || project.image);
   const imageAlt = project.detail?.imageAlt || `${project.name} preview image`;
-
-  console.log("imageSrc: ", imageSrc);
 
   return (
     <main className="relative overflow-hidden bg-primary-light text-primary dark:bg-primary dark:text-white">
@@ -170,7 +185,7 @@ export default function ProjectDetail({ project }) {
               ))}
 
               <Link
-                to="/#projects"
+                to="/projects"
                 className="inline-flex items-center gap-2 rounded-full border border-secondary-light/30 bg-secondary-light/10 px-5 py-3 text-sm font-semibold text-secondary-light transition hover:-translate-y-0.5 dark:text-secondary"
               >
                 <Sparkles className="h-4 w-4" />
@@ -260,6 +275,52 @@ export default function ProjectDetail({ project }) {
             ))}
           </ul>
         </InfoCard>
+
+        {relatedProjects.length > 0 && (
+          <section className="mt-6 rounded-3xl border border-white/10 bg-white/70 p-6 shadow-card backdrop-blur-md dark:bg-tertiary/85">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <p className={styles.sectionSubText}>Next steps</p>
+                <h2 className="mt-2 text-[22px] font-bold text-tertiary dark:text-white">
+                  Related Projects
+                </h2>
+              </div>
+              <Link
+                to="/projects"
+                className="text-sm font-semibold text-secondary-light underline decoration-secondary-light/30 underline-offset-4"
+              >
+                View all
+              </Link>
+            </div>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {relatedProjects.map((item) => (
+                <Link
+                  key={item.slug}
+                  to={`/projects/${item.slug}`}
+                  className="group overflow-hidden rounded-2xl border border-primary/10 bg-primary-light/80 transition hover:-translate-y-1 hover:shadow-card dark:border-white/10 dark:bg-black-100/60"
+                >
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={getAbsoluteUrl(item.image)}
+                      alt={`${item.name} preview`}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-tertiary dark:text-white">
+                      {item.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-primary/70 dark:text-secondary">
+                      {item.headline}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </main>
   );
