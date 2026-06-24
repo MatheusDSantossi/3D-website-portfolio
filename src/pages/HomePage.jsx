@@ -10,13 +10,18 @@ import {
 } from "../components";
 import { SEO } from "../components/SEO/SEO";
 import StructuredData from "../components/SEO/StructuredData";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "../constants/site";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_OG_IMAGE,
+  SITE_URL,
+} from "../constants/site";
 
 export default function HomePage({ showLine, showEarth }) {
   return (
     <main className="relative z-0 bg-primary-light dark:bg-primary">
       <SEO
-        title={`${SITE_NAME} | Software Engineer`}
+        title={`${SITE_NAME} | Fullstack Developer`}
         description={SITE_DESCRIPTION}
         canonical={SITE_URL}
         image={SITE_OG_IMAGE}

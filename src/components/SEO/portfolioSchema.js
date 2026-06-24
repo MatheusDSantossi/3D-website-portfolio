@@ -13,8 +13,7 @@ export function buildPortfolioSchema(projects) {
   const projectsId = `${SITE_URL}/#projects`;
 
   const projectEntities = projects.map((project) => {
-    const url =
-      getProjectUrl(project.slug);
+    const url = getProjectUrl(project.slug);
 
     const isSoftwareApplication = Boolean(project.liveUrl);
 
@@ -48,9 +47,9 @@ export function buildPortfolioSchema(projects) {
         name: SITE_NAME,
         url: SITE_URL,
         image: SITE_OG_IMAGE,
-        jobTitle: "Software Engineer",
+        jobTitle: "Fullstack Developer",
         description:
-          "Software engineer and full stack developer specializing in React, Python, AI applications, and SaaS products.",
+          "Fullstack Developer and full stack developer specializing in React, Python, AI applications, and SaaS products.",
         sameAs: [
           "https://github.com/MatheusDSantossi",
           "https://www.linkedin.com/in/matheussantossi",
@@ -90,7 +89,7 @@ export function buildPortfolioSchema(projects) {
         "@type": "WebPage",
         "@id": webpageId,
         url: SITE_URL,
-        name: `${SITE_NAME} | Software Engineer`,
+        name: `${SITE_NAME} | Fullstack Developer`,
         description:
           "Portfolio of Matheus D. Santos, fullstack building web applications, AI tools, and SaaS products.",
         isPartOf: {
