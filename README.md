@@ -1,6 +1,7 @@
 # 3D Portfolio Website
 
-This is my first project using **THREE.js**, where I built a simple 3D portfolio website. The goal of this project is to learnm more about 3D graphics and motion on web pages.
+A personal portfolio built with React and Three.js to showcase interactive web motion, 3D presentation, and frontend engineering skills.
+It includes routed project pages, reusable UI sections, and a scroll-driven experience designed for visual storytelling.
 
 ## Features
 
