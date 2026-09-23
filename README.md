@@ -1,30 +1,35 @@
 # 3D Website Portfolio
 
+![3D Website Portfolio Demo](https://github.com/user-attachments/assets/db45ea6c-3977-4b2c-9ddd-bebce10b8f02)
+
+**Live Demo:** [View the portfolio](https://www.matheusdsantosr.com/)
+
 A personal portfolio website built with **React**, **Vite**, and **Three.js** to showcase my projects, experience, and development skills through an interactive 3D user interface.
 
-This project combines modern frontend engineering with visual storytelling. It was created to serve as both a professional portfolio and a practical playground for experimenting with 3D web experiences, responsive layouts, and smooth navigation.
+This project combines modern frontend engineering with visual storytelling. It was created both as a professional portfolio and as a practical project for exploring 3D web experiences, responsive interfaces, animation, and client-side navigation.
 
 ## Overview
 
-The site is designed to present my work in a way that feels more engaging than a standard static portfolio. It includes:
+The site is designed to present my work in a more engaging way than a traditional static portfolio. It includes:
 
-* a home page with a 3D-inspired hero section
+* a 3D-inspired hero experience
 * dedicated sections for about, experience, and projects
-* individual project pages
-* responsive navigation and layout
+* individual project detail pages
+* responsive layouts and navigation
 * animated and interactive visual elements
 
-The goal is to balance **presentation**, **usability**, and **technical depth**.
+The goal is to balance **visual presentation, usability, and maintainable frontend architecture**.
 
 ## Features
 
 * Interactive 3D visuals with Three.js
 * Responsive design for desktop and mobile
-* Route-based navigation between portfolio sections
-* Reusable UI components
-* Clean component organization
+* Route-based navigation with React Router
+* Reusable React components
+* Structured page and component organization
 * Smooth scrolling and animated interactions
-* Project detail pages for better storytelling
+* Dedicated project detail pages
+* Responsive navigation and interface elements
 
 ## Tech Stack
 
@@ -38,7 +43,7 @@ The goal is to balance **presentation**, **usability**, and **technical depth**.
 
 ## Project Structure
 
-```bash
+```text
 src/
 ├── assets/
 ├── components/
@@ -51,11 +56,11 @@ src/
 
 ### Main sections
 
-* **components** — reusable interface pieces such as navigation and sections
-* **pages** — page-level views like the home page and project details
-* **constants** — shared configuration and content data
+* **components** — reusable interface components and portfolio sections
+* **pages** — page-level views and project detail pages
+* **constants** — shared configuration and portfolio content
 * **utils** — helper functions and reusable logic
-* **assets** — images, icons, and static resources
+* **assets** — images, icons, and other static resources
 
 ## Getting Started
 
@@ -92,40 +97,47 @@ npm run preview
 
 ## Screenshots
 
-Add screenshots here to show the main experience:
+### Home
 
-* home page
-* about section
-* project list
-* project detail page
-* mobile view
+![Home Page](https://github.com/user-attachments/assets/8b007be1-eccf-4550-af8c-9b02dcad19b1)
 
-## Demo
+### Projects
 
-If available, add a live demo link here and a short screen recording or GIF to show the experience in motion.
+![Projects Page](https://github.com/user-attachments/assets/5331eb86-1ff2-425c-813f-1779b809979d)
 
-## Why I built this
+### Project Details
 
-This project was made to strengthen my frontend skills while creating a portfolio that feels more memorable and personal. It reflects my interest in:
+![Projects Details Page](https://github.com/user-attachments/assets/18311c61-e3e1-4c54-ad56-03da906b248b)
 
-* interactive user interfaces
-* visual design
-* modern React development
-* 3D web experiences
-* presentation of technical work
+### Mobile
+
+![Projects Details Page](https://github.com/user-attachments/assets/99eb9f7f-fe7c-4e00-bfa5-34253870845c)
+
+## Why I Built This
+
+I built this project to create a portfolio that reflects both my **frontend engineering skills** and my interest in interactive web experiences.
+
+Beyond presenting my work, the project gave me an opportunity to explore:
+
+* component-based frontend architecture
+* 3D experiences on the web with Three.js
+* responsive interface design
+* client-side routing
+* animation and interaction design
+* presenting technical projects through visual storytelling
 
 ## Future Improvements
 
+* improve accessibility across the application
+* further optimize mobile performance
 * refine 3D interactions and transitions
 * add more detailed project case studies
-* improve accessibility
-* expand mobile optimizations
-* add performance profiling and optimization notes
+* document performance measurements and optimization decisions
 
 ## Acknowledgements
 
-This project was inspired by learning resources and tutorials that helped me understand how to combine React with 3D experiences on the web. Credit is included where appropriate.
+This project was developed using concepts and techniques learned from external resources and tutorials. Relevant resources and contributors are credited here where applicable.
 
 ## License
 
-This project is open for viewing as part of my portfolio. If you plan to reuse any part of it, please check the repository license and give proper credit.
+See the repository's `LICENSE` file for usage and distribution terms.
