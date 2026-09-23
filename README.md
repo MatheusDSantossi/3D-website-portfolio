@@ -136,7 +136,36 @@ Beyond presenting my work, the project gave me an opportunity to explore:
 
 ## Acknowledgements
 
-This project was developed using concepts and techniques learned from external resources and tutorials. Relevant resources and contributors are credited here where applicable.
+### Foundation
+
+This portfolio started as a follow-along of the [JavaScript Mastery](https://www.youtube.com/@javascriptmastery) tutorial [Build and Deploy an Amazing 3D Web Developer Portfolio in React JS](https://www.youtube.com/watch?v=0fYi8SGA20k) by Adrian Hajdin, along with its [companion repository](https://github.com/adrianhajdin/project_3D_developer_portfolio).
+
+From the tutorial, I kept the overall section layout (Hero, About, Experience, Tech, Works, Contact), the `SectionWrapper` higher-order component pattern, the Framer Motion variants in `utils/motion.js`, the base React Three Fiber scenes (Earth, tech balls, stars), and the initial set of technology icons.
+
+### What I built and changed
+
+After completing the tutorial, I customized and extended the project substantially:
+
+- Replaced the 3D computer in the hero with a custom animated bloom-line scene
+- Light/dark theme with a persisted preference and animated transitions
+- Multi-page routing with React Router: a projects hub and individual project detail pages
+- SEO work: `react-helmet-async`, JSON-LD structured data, and `sitemap.xml` / `robots.txt` generated at build time
+- Reworked the Works section into a carousel of interactive project cards
+- Tech section with experience progress bars and tooltips
+- Contact form rebuilt with `react-hook-form` validation and success/error feedback
+- Performance work: memoized components, throttled scroll-based mounting of 3D canvases, and Vercel Speed Insights
+- All content, copy, projects, and branding are my own
+
+### Third-party assets and code
+
+**3D models** (from Sketchfab, licensed under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)):
+
+- This work is based on ["Stylized planet"](https://sketchfab.com/3d-models/stylized-planet-789725db86f547fc9163b00f302c3e70) by [cmzw](https://sketchfab.com/cmzw).
+- This work is based on ["Gaming Desktop PC"](https://sketchfab.com/3d-models/gaming-desktop-pc-d1d8282c9916438091f11aeb28787b66) by [Yolala1232](https://sketchfab.com/Yolala1232).
+
+**Line animation:** the hero's line rendering uses [MeshLine](https://github.com/pmndrs/meshline), originally created as THREE.MeshLine by Jaume Sánchez Elias.
+
+**Libraries:** React, Vite, Three.js, React Three Fiber, Drei, maath, Framer Motion, Tailwind CSS, React Router, react-tilt, react-vertical-timeline-component, react-slick, react-hook-form, EmailJS, Lucide, and React Icons.
 
 ## License
 
