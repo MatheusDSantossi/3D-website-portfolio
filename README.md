@@ -1,5 +1,8 @@
 # 3D Website Portfolio
 
+> [!NOTE]
+> This portfolio is being replaced. A new portfolio is in development and will be linked here when live.
+
 ![3D Website Portfolio Demo](https://github.com/user-attachments/assets/3206ca11-9572-47d0-aa48-3f87d3997b55)
 
 **Live Demo:** [View the portfolio](https://www.matheusdsantosr.com/)
